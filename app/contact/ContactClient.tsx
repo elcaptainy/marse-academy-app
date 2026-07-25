@@ -13,7 +13,7 @@ interface ContactClientProps {
 export default function ContactClient({ initialSettings }: ContactClientProps) {
   const [globalSettings, setGlobalSettings] = useState({
     supportWhatsapp: '1234567890',
-    supportEmail: 'admissions@marse-academy.com',
+    supportEmail: 'marse.academy.support@gmail.com',
     contactTitle: 'CONTACT MARSE ACADEMY',
     contactLead: 'Reach our registration and student support teams. Submit your enquiry below or contact us via WhatsApp for instant admissions support.',
     contactAddress: 'MARSE Academy London Studio, Westminster, SW1P, United Kingdom',

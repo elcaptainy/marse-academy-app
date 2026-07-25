@@ -22,7 +22,7 @@ function getTransporter() {
 }
 
 // Global Sender Header
-const SENDER_INFO = '"Marse Talent Academy" <admissions@marse-academy.com>';
+const SENDER_INFO = '"Marse Talent Academy Support" <marse.academy.support@gmail.com>';
 
 // Luxury HTML Email Wrapper Template
 function getLuxuryWrapper(title: string, contentHtml: string): string {

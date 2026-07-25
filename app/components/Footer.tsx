@@ -12,7 +12,7 @@ interface GalleryItem {
 export default function Footer() {
   const [globalSettings, setGlobalSettings] = useState<any>({
     supportWhatsapp: '1234567890',
-    supportEmail: 'admissions@marse-academy.com',
+    supportEmail: 'marse.academy.support@gmail.com',
     showStats: true,
     showFooterGallery: true,
     stat1Value: '20+',

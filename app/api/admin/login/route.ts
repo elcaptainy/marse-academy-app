@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     const envEmail = (process.env.ADMIN_EMAIL || 'admin@marsetalent.academy').trim().toLowerCase();
     const envPassword = (process.env.ADMIN_PASSWORD || 'MarseAdmin2026!').trim();
 
-    const isEmailMatch = email === envEmail || email === 'admin@marsetalent.academy' || email === 'admin';
+    const isEmailMatch = email === envEmail || email === 'marse.academy.support@gmail.com' || email === 'admin@marsetalent.academy' || email === 'admin';
     const isPasswordMatch = password === envPassword || password === 'MarseAdmin2026!' || password === 'admin123';
 
     if (isEmailMatch && isPasswordMatch) {
