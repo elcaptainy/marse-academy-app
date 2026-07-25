@@ -4,6 +4,52 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from './checkout.module.css';
 
+// OFFICIAL PAYMENT BRAND LOGO COMPONENTS (SVG)
+const VisaLogo = () => (
+  <svg width="38" height="24" viewBox="0 0 38 24" fill="none" style={{ borderRadius: '4px', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))' }}>
+    <rect width="38" height="24" rx="4" fill="#1A1F71"/>
+    <path d="M14.5 16.2L16.4 8.6H19.3L17.4 16.2H14.5ZM24 8.8C23.4 8.6 22.5 8.4 21.4 8.4C18.3 8.4 16.2 10 16.2 12.3C16.2 14 17.7 14.9 18.8 15.5C19.9 16.1 20.3 16.4 20.3 16.9C20.3 17.6 19.4 17.9 18.5 17.9C17.2 17.9 16.3 17.6 15.7 17.3L15.2 19.6C15.9 19.9 17.3 20.2 18.7 20.2C22 20.2 24.1 18.6 24.1 16.2C24.1 13.1 19.9 12.9 19.9 11.6C19.9 11.1 20.4 10.6 21.5 10.6C22.3 10.6 23.3 10.8 23.9 11.1L24 8.8ZM29.1 8.6H26.9C26.2 8.6 25.6 8.8 25.3 9.5L21.7 18H24.7L25.3 16.3H29L29.3 18H31.9L29.1 8.6ZM26.1 14L27.5 10.2L28.3 14H26.1ZM13.3 8.6L10.4 15.8L9.3 9.5C9.1 8.9 8.6 8.6 8 8.6H3.1L3 8.9C4.1 9.2 5.6 9.7 6.7 10.3L10.2 20.2H13.3L17.5 8.6H13.3" fill="white"/>
+  </svg>
+);
+
+const MastercardLogo = () => (
+  <svg width="38" height="24" viewBox="0 0 38 24" fill="none" style={{ borderRadius: '4px', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))' }}>
+    <rect width="38" height="24" rx="4" fill="#141414"/>
+    <circle cx="14" cy="12" r="7.5" fill="#EB001B"/>
+    <circle cx="24" cy="12" r="7.5" fill="#F79E1B"/>
+    <path d="M19 6.24A7.47 7.47 0 0 0 16.37 12 7.47 7.47 0 0 0 19 17.76 7.47 7.47 0 0 0 21.63 12 7.47 7.47 0 0 0 19 6.24Z" fill="#FF5F00"/>
+  </svg>
+);
+
+const PayPalOfficialLogo = () => (
+  <svg width="76" height="22" viewBox="0 0 76 22" fill="none">
+    <path d="M8.7 3H3.2C2.9 3 2.6 3.2 2.5 3.5L0 19.1C0 19.3 0.2 19.5 0.4 19.5H4.6C4.9 19.5 5.2 19.3 5.3 19L6.2 13.3C6.3 13 6.6 12.8 6.9 12.8H9.1C13.4 12.8 16 10.6 16.6 6.3C17 4.3 15.8 3 13.7 3H8.7Z" fill="#003087"/>
+    <path d="M9.5 4.7H5.2C4.9 4.7 4.6 4.9 4.5 5.2L3 14.8C3 15 3.2 15.2 3.4 15.2H6.5C6.8 15.2 7.1 15 7.2 14.7L8 9.1C8.1 8.8 8.4 8.6 8.7 8.6H10.9C15.2 8.6 17.4 6.4 18 2.2C17.8 2.1 17.5 2 17.1 2C16.2 2 15.1 2.1 14 2.1H9.5V4.7Z" fill="#0079C1"/>
+    <path d="M25.5 3H20C19.7 3 19.4 3.2 19.3 3.5L16.8 19.1C16.8 19.3 17 19.5 17.2 19.5H21.4C21.7 19.5 22 19.3 22.1 19L23 13.3C23.1 13 23.4 12.8 23.7 12.8H25.9C30.2 12.8 32.8 10.6 33.4 6.3C33.8 4.3 32.6 3 30.5 3H25.5Z" fill="#00457C"/>
+  </svg>
+);
+
+const GooglePayOfficialLogo = () => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: '#fff', border: '1px solid #cbd5e1', padding: '3px 8px', borderRadius: '4px' }}>
+    <svg width="18" height="18" viewBox="0 0 24 24">
+      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+    </svg>
+    <span style={{ fontSize: '13px', fontWeight: '800', color: '#5f6368', fontFamily: 'sans-serif' }}>Pay</span>
+  </div>
+);
+
+const ApplePayOfficialLogo = () => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', background: '#000', padding: '4px 10px', borderRadius: '4px', color: '#fff' }}>
+    <svg width="14" height="16" viewBox="0 0 170 170" fill="currentColor">
+      <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.34.13-9.16-1.9-14.48-6.1-3.23-2.63-7.14-7.27-11.72-13.9-6.3-9.15-11.13-19.5-14.48-31.06-3.36-11.55-5.04-22.37-5.04-32.46 0-14.68 3.69-26.6 11.07-35.75 7.38-9.16 16.71-13.8 27.99-13.93 4.83 0 10.05 1.18 15.66 3.55 5.61 2.37 9.4 3.55 11.37 3.55 1.63 0 5.48-1.24 11.55-3.73 6.07-2.48 11.45-3.62 16.14-3.41 12.01.52 21.6 4.96 28.77 13.33-10.74 6.5-16.01 15.54-15.82 27.13.19 9.04 3.6 16.59 10.23 22.65 6.63 6.06 14.54 9.48 23.73 10.26-2.58 7.74-5.94 15.35-10.08 22.84zM119.22 31.09c0-7.07 2.58-13.79 7.75-20.17 5.16-6.37 11.75-10.15 19.76-10.92.26 1.04.39 2.01.39 2.92 0 6.94-2.65 13.79-7.95 20.55-5.3 6.76-11.85 10.45-19.65 11.07-.06-1.11-.3-2.26-.3-3.45z"/>
+    </svg>
+    <span style={{ fontSize: '13px', fontWeight: '700', fontFamily: 'sans-serif' }}>Pay</span>
+  </div>
+);
+
 function CheckoutContent() {
   const searchParams = useSearchParams();
   const planId = searchParams.get('plan');
@@ -257,11 +303,11 @@ function CheckoutContent() {
             
             {/* OPTION 1: PAY WITH CARD (STRIPE) - ACTIVE */}
             <div style={{
-              border: selectedOption === 'CARD' ? '1.5px solid #d946ef' : '1px solid #e2e8f0',
+              border: selectedOption === 'CARD' ? '1.5px solid #ea580c' : '1px solid #e2e8f0',
               borderRadius: '10px',
               backgroundColor: '#ffffff',
               overflow: 'hidden',
-              boxShadow: selectedOption === 'CARD' ? '0 4px 20px rgba(217, 70, 239, 0.08)' : 'none',
+              boxShadow: selectedOption === 'CARD' ? '0 4px 20px rgba(234, 88, 12, 0.08)' : 'none',
               transition: 'all 0.2s ease'
             }}>
               <div 
@@ -281,13 +327,13 @@ function CheckoutContent() {
                     name="paymentMethod" 
                     checked={selectedOption === 'CARD'} 
                     onChange={() => setSelectedOption('CARD')}
-                    style={{ accentColor: '#d946ef', width: '18px', height: '18px', cursor: 'pointer' }}
+                    style={{ accentColor: '#ea580c', width: '18px', height: '18px', cursor: 'pointer' }}
                   />
                   <span style={{ fontSize: '15px', fontWeight: '700', color: '#111' }}>Pay with card</span>
                 </div>
                 <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                  <span style={{ fontSize: '10px', fontWeight: '800', backgroundColor: '#1e293b', color: '#fff', padding: '2px 6px', borderRadius: '3px' }}>VISA</span>
-                  <span style={{ fontSize: '10px', fontWeight: '800', backgroundColor: '#ea580c', color: '#fff', padding: '2px 6px', borderRadius: '3px' }}>MC</span>
+                  <VisaLogo />
+                  <MastercardLogo />
                 </div>
               </div>
 
@@ -321,9 +367,9 @@ function CheckoutContent() {
                           disabled={payStatus === 'LOADING'}
                           style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '12px 14px' }}
                         />
-                        <div style={{ position: 'absolute', right: '12px', display: 'flex', gap: '4px' }}>
-                          <span style={{ fontSize: '9px', background: '#e2e8f0', color: '#333', padding: '2px 4px', borderRadius: '2px', fontWeight: 'bold' }}>VISA</span>
-                          <span style={{ fontSize: '9px', background: '#e2e8f0', color: '#333', padding: '2px 4px', borderRadius: '2px', fontWeight: 'bold' }}>MC</span>
+                        <div style={{ position: 'absolute', right: '12px', display: 'flex', gap: '4px', alignItems: 'center' }}>
+                          <VisaLogo />
+                          <MastercardLogo />
                         </div>
                       </div>
                     </div>
@@ -344,16 +390,19 @@ function CheckoutContent() {
                       </div>
                       <div className={styles.inputGroup}>
                         <label style={{ fontSize: '13px', fontWeight: '700', color: '#334155', textTransform: 'none' }}>Security code</label>
-                        <input 
-                          type="password" 
-                          required 
-                          maxLength={4}
-                          value={formData.cvc}
-                          onChange={(e) => setFormData(prev => ({ ...prev, cvc: e.target.value.replace(/\D/g, '') }))}
-                          placeholder="CVC"
-                          disabled={payStatus === 'LOADING'}
-                          style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '12px 14px' }}
-                        />
+                        <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                          <input 
+                            type="password" 
+                            required 
+                            maxLength={4}
+                            value={formData.cvc}
+                            onChange={(e) => setFormData(prev => ({ ...prev, cvc: e.target.value.replace(/\D/g, '') }))}
+                            placeholder="CVC"
+                            disabled={payStatus === 'LOADING'}
+                            style={{ border: '1px solid #cbd5e1', borderRadius: '6px', padding: '12px 14px', width: '100%' }}
+                          />
+                          <span style={{ position: 'absolute', right: '10px', fontSize: '11px', color: '#94a3b8', fontWeight: 'bold' }}>💳 123</span>
+                        </div>
                       </div>
                     </div>
 
@@ -429,7 +478,7 @@ function CheckoutContent() {
                   />
                   <span style={{ fontSize: '15px', fontWeight: '700', color: '#111' }}>Pay with PayPal</span>
                 </div>
-                <span style={{ fontSize: '14px', fontWeight: '900', color: '#0070ba', fontStyle: 'italic' }}>PayPal</span>
+                <PayPalOfficialLogo />
               </div>
 
               {selectedOption === 'PAYPAL' && (
@@ -450,10 +499,15 @@ function CheckoutContent() {
                       padding: '14px',
                       fontSize: '15px',
                       fontWeight: '800',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px'
                     }}
                   >
-                    Proceed with PayPal Express →
+                    <PayPalOfficialLogo />
+                    <span>Proceed with PayPal Express →</span>
                   </button>
                 </div>
               )}
@@ -464,21 +518,21 @@ function CheckoutContent() {
               border: '1px solid #e2e8f0',
               borderRadius: '10px',
               backgroundColor: '#fafafa',
-              padding: '16px 20px',
+              padding: '14px 20px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              opacity: 0.7
+              opacity: 0.75
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <input type="radio" disabled name="paymentMethod" style={{ width: '18px', height: '18px' }} />
                 <span style={{ fontSize: '15px', fontWeight: '600', color: '#64748b' }}>Pay with Google Pay</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '11px', background: '#e2e8f0', color: '#475569', fontWeight: '800', padding: '2px 8px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '10px', background: '#e2e8f0', color: '#475569', fontWeight: '800', padding: '2px 8px', borderRadius: '12px' }}>
                   SOON ⏳
                 </span>
-                <span style={{ fontSize: '13px', fontWeight: '700', color: '#4285F4' }}>G Pay</span>
+                <GooglePayOfficialLogo />
               </div>
             </div>
 
@@ -487,21 +541,21 @@ function CheckoutContent() {
               border: '1px solid #e2e8f0',
               borderRadius: '10px',
               backgroundColor: '#fafafa',
-              padding: '16px 20px',
+              padding: '14px 20px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              opacity: 0.7
+              opacity: 0.75
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <input type="radio" disabled name="paymentMethod" style={{ width: '18px', height: '18px' }} />
                 <span style={{ fontSize: '15px', fontWeight: '600', color: '#64748b' }}>Pay with Apple Pay</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '11px', background: '#e2e8f0', color: '#475569', fontWeight: '800', padding: '2px 8px', borderRadius: '12px' }}>
+                <span style={{ fontSize: '10px', background: '#e2e8f0', color: '#475569', fontWeight: '800', padding: '2px 8px', borderRadius: '12px' }}>
                   SOON ⏳
                 </span>
-                <span style={{ fontSize: '13px', fontWeight: '700', color: '#000000' }}> Pay</span>
+                <ApplePayOfficialLogo />
               </div>
             </div>
 
@@ -518,19 +572,18 @@ function CheckoutContent() {
             paddingTop: '16px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '10px'
+            gap: '12px'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
               <span style={{ fontSize: '13px', fontWeight: '800', color: '#0f172a' }}>100% secure payment</span>
-              <div style={{ display: 'flex', gap: '4px' }}>
-                <span style={{ fontSize: '9px', background: '#1e293b', color: '#fff', padding: '2px 6px', borderRadius: '3px', fontWeight: 'bold' }}>VISA</span>
-                <span style={{ fontSize: '9px', background: '#ea580c', color: '#fff', padding: '2px 6px', borderRadius: '3px', fontWeight: 'bold' }}>MC</span>
-                <span style={{ fontSize: '9px', background: '#0284c7', color: '#fff', padding: '2px 6px', borderRadius: '3px', fontWeight: 'bold' }}>AMEX</span>
-                <span style={{ fontSize: '9px', background: '#0070ba', color: '#fff', padding: '2px 6px', borderRadius: '3px', fontWeight: 'bold' }}>PayPal</span>
+              <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                <VisaLogo />
+                <MastercardLogo />
+                <PayPalOfficialLogo />
               </div>
             </div>
-            <p style={{ fontSize: '11px', color: '#64748b', margin: 0 }}>
-              🔒 Your cards are safely processed via 256-bit encrypted SSL payment gateway.
+            <p style={{ fontSize: '11px', color: '#64748b', margin: 0, display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span>🔒 Your cards are safely stored & processed via 256-bit encrypted SSL payment gateway.</span>
             </p>
           </div>
 
