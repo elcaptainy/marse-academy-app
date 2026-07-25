@@ -140,6 +140,37 @@ function CheckoutContent() {
       });
   }, [planId]);
 
+  const handleStripeHostedCheckout = async () => {
+    if (payStatus === 'LOADING') return;
+    setPayStatus('LOADING');
+    setErrorMessage('');
+    showToast('Redirecting to official Stripe Checkout (checkout.stripe.com)...', 'success');
+    try {
+      const res = await fetch('/api/checkout/session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          planName: selectedPlan.name,
+          amount: selectedPlan.price,
+          email: formData.email,
+          cardName: formData.cardName
+        })
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        setPayStatus('ERROR');
+        setErrorMessage(data.error || 'Failed to initialize official Stripe Checkout');
+        showToast(data.error || 'Failed to initialize official Stripe Checkout', 'error');
+      }
+    } catch (err) {
+      setPayStatus('ERROR');
+      setErrorMessage('Connection error to Stripe Checkout');
+      showToast('Connection error to Stripe Checkout', 'error');
+    }
+  };
+
   const handleCheckoutSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (payStatus === 'LOADING') return;
@@ -409,6 +440,56 @@ function CheckoutContent() {
 
           {paymentGateway === 'STRIPE' ? (
             <>
+              {/* Official Stripe Hosted Checkout Option (checkout.stripe.com) */}
+              <div style={{
+                background: 'linear-gradient(135deg, rgba(99, 91, 255, 0.15) 0%, rgba(99, 91, 255, 0.05) 100%)',
+                border: '1px solid rgba(99, 91, 255, 0.35)',
+                borderRadius: '12px',
+                padding: '20px',
+                marginBottom: '24px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '14px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ fontSize: '20px' }}>🔒</span>
+                    <div>
+                      <h4 style={{ margin: 0, fontSize: '13.5px', color: '#ffffff', fontWeight: '700' }}>Official Stripe Hosted Checkout</h4>
+                      <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: '#a0a0a0' }}>Redirect to checkout.stripe.com (SSL Encrypted & Apple Pay)</p>
+                    </div>
+                  </div>
+                  <span style={{ fontSize: '10px', background: '#635BFF', color: '#fff', fontWeight: '800', padding: '3px 8px', borderRadius: '4px', letterSpacing: '0.04em' }}>
+                    STRIPE OFFICIAL
+                  </span>
+                </div>
+                
+                <button
+                  type="button"
+                  onClick={handleStripeHostedCheckout}
+                  disabled={payStatus === 'LOADING'}
+                  style={{
+                    width: '100%',
+                    backgroundColor: '#635BFF',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '8px',
+                    padding: '14px 18px',
+                    fontSize: '13px',
+                    fontWeight: '800',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px',
+                    boxShadow: '0 4px 16px rgba(99, 91, 255, 0.35)',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>Pay via Official Stripe Portal (checkout.stripe.com)</span>
+                </button>
+              </div>
               {/* Interactive Credit Card Preview */}
               <div className={styles.creditCardWrapper}>
                 <div className={styles.creditCard}>
