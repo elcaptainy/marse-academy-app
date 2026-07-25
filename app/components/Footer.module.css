@@ -1,0 +1,335 @@
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0px 0px 48px 0px;
+  width: 100%;
+  margin-top: 0px;
+  border-radius: 0px; /* Sharp corners to match design */
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Stats Section ── */
+.statsSection {
+  background-color: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 56px 24px;
+  width: 100%;
+}
+
+.statsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.statCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.statCard span {
+  font-size: 22px;
+  color: #C7A56A;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.statCard h3 {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 42px;
+  font-weight: 300;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+
+.statCard p {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.statDivider {
+  width: 1px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Gallery Strip ── */
+.galleryStrip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  height: 220px;
+  background-color: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.galleryImgWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.galleryStripImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.galleryImgWrapper:hover .galleryStripImg {
+  transform: scale(1.06);
+}
+
+.viewGalleryOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 10, 10, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.viewGalleryBtn {
+  background-color: transparent;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-decoration: none;
+  padding: 13px 28px;
+  border: 1px solid #C7A56A;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 12px;
+}
+
+.viewGalleryBtn:hover {
+  background-color: #C7A56A;
+  color: #0A0A0A;
+  border-color: #C7A56A;
+}
+
+/* ── Bottom Container ── */
+.container {
+  max-width: 1200px;
+  margin: 64px auto 0 auto;
+  padding: 0 24px;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1.2fr;
+  gap: 40px;
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.brandTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoAbbr {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.logoDivider {
+  opacity: 1.0;
+  font-weight: 200;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoMain {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.logoSub {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+}
+
+.logoSub2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.colTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #ffffff;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.footerLink:hover {
+  color: #ffffff;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.socialLink {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactText {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-weight: 400;
+}
+
+.divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: 48px 0 24px 0;
+}
+
+.copyright {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .brandCol {
+    grid-column: span 2;
+    margin-bottom: 16px;
+  }
+  .galleryStrip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .galleryImgWrapper:nth-child(4),
+  .galleryImgWrapper:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsContainer {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .statDivider {
+    width: 60px;
+    height: 1px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .brandCol {
+    grid-column: span 1;
+  }
+  .galleryStrip {
+    grid-template-columns: 1fr;
+  }
+  .galleryImgWrapper:not(:nth-child(3)) {
+    display: none;
+  }
+}

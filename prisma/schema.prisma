@@ -1,0 +1,129 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 1. User & Admin
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String   // Hashed password
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// 2. Hero Settings (Dynamic Hero section)
+model HeroSettings {
+  id             String   @id @default("hero-settings")
+  title          String   @default("BEYOND EDUCATION. BEYOND LIMITS.")
+  description    String   @default("An exclusive collective designed for ambitious youth who dare to shape the future. The Marse Talent standard.")
+  videoUrl       String   @default("/vienna-makeup-hair.mp4")
+  imageUrl       String   @default("/hero-model.png")
+  mediaType      String   @default("VIDEO") // "VIDEO" or "IMAGE"
+  mediaPosition  String   @default("50%")
+  mediaPositionX String   @default("50%")
+  mediaPositionY String   @default("50%")
+  mediaScale     Float    @default(1.0)
+  mediaOverlay   Float    @default(0.4)
+  updatedAt      DateTime @updatedAt
+}
+
+// 3. Curriculum Features (Hover-to-play)
+model CurriculumFeature {
+  id        String   @id @default(uuid())
+  title     String
+  videoUrl  String
+  order     Int      @default(0)
+}
+
+// 4. Bento Gallery (Mosaic / Campus Grid)
+model BentoGallery {
+  id        String   @id @default(uuid())
+  type      String   // "IMAGE" or "VIDEO"
+  url       String
+  size      String   // "WIDE", "TALL", "SQUARE"
+  altText   String   @default("Gallery media")
+  category  String   @default("CLASSES")
+  order     Int      @default(0)
+}
+
+// 5. Mentor (Clickable profiles with popup intro videos & bios)
+model Mentor {
+  id          String   @id @default(uuid())
+  name        String
+  role        String
+  image       String   // Profile picture
+  bio         String   @db.Text
+  video       String   // Intro video
+  socials     Json     // { instagram: string, linkedin: string, behance: string }
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+// 6. Pricing Plan
+model PricingPlan {
+  id          String   @id @default(uuid())
+  name        String   // "Monthly", "Quarterly", "Full Annual"
+  description String
+  price       String   // "$4,500", "$48,000", etc.
+  period      String   // "/mo", "/quarter", "/yr"
+  features    String[] // List of benefits
+  isFeatured  Boolean  @default(false)
+  badge       String   @default("NONE") // "NONE", "RECOMMENDED", "MOST_POPULAR", "ELITE"
+  order       Int      @default(0)
+}
+
+// 7. Frequently Asked Questions (FAQ Accordion)
+model FAQ {
+  id        String   @id @default(uuid())
+  question  String
+  answer    String   @db.Text
+  order     Int      @default(0)
+}
+
+// 8. Client Testimonials
+model Testimonial {
+  id        String   @id @default(uuid())
+  quote     String   @db.Text
+  author    String
+  role      String
+  order     Int      @default(0)
+}
+
+// 9. Student Applications (Apply Form data)
+model Application {
+  id             String   @id @default(uuid())
+  fullName       String
+  email          String
+  phone          String?
+  dob            String?
+  educationLevel String
+  interests      String[]
+  guardianName   String?
+  guardianEmail  String?
+  guardianPhone  String?
+  photo          String?
+  termsAccepted  Boolean  @default(true)
+  mediaConsent   Boolean  @default(true)
+  medicalConsent Boolean  @default(true)
+  cohortId       String?
+  status         String   @default("PENDING") // PENDING, CONTACTED, APPROVED, REJECTED
+  createdAt      DateTime @default(now())
+}
+
+// 10. Financial Transactions (Secure Checkout billing logs)
+model Transaction {
+  id          String   @id @default(uuid())
+  email       String
+  cardName    String
+  cardNumber  String   // Masked (e.g. **** **** **** 1234)
+  amount      String
+  planName    String
+  status      String   @default("COMPLETED") // COMPLETED, FAILED, REFUNDED
+  createdAt   DateTime @default(now())
+}

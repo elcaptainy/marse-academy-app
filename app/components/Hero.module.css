@@ -1,0 +1,235 @@
+.heroSection {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #070707;
+}
+
+@media (min-width: 1024px) {
+  .heroSection {
+    flex-direction: row;
+    align-items: stretch;
+    height: 100vh;
+    min-height: 650px;
+  }
+}
+
+.leftColumn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 140px 24px 60px 24px;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .leftColumn {
+    width: 48%;
+    height: 100%;
+    padding: 80px 60px;
+  }
+}
+
+.rightColumn {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  background-color: #000000;
+  z-index: 5;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .rightColumn {
+    width: 52%;
+    height: 100%;
+  }
+}
+
+/* Background image or video */
+.mediaContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mediaAsset {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mediaOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(7,7,7,0.7) 0%, rgba(7,7,7,0.1) 50%, rgba(7,7,7,0.8) 100%);
+  z-index: 8;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .mediaOverlay {
+    /* Left to right gradient on desktop matching black left column */
+    background: linear-gradient(to right, rgba(7,7,7,1) 0%, rgba(7,7,7,0.2) 25%, rgba(7,7,7,0) 100%);
+  }
+}
+
+/* Branding elements in Left Column */
+.stackedLogoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.heroLogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.heroLogoLetter {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 72px;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .heroLogoLetter {
+    font-size: 96px;
+  }
+}
+
+.heroLogoDivider {
+  color: #ffffff;
+  opacity: 1.0;
+  font-size: 56px;
+  font-weight: 100;
+  line-height: 1;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .heroLogoDivider {
+    font-size: 76px;
+  }
+}
+
+.brandTextGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.heroBrandName {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.38em;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-align: center;
+  padding-left: 0.38em; /* Offset for trailing letter-spacing to center text perfectly */
+}
+
+@media (min-width: 768px) {
+  .heroBrandName {
+    font-size: 42px;
+  }
+}
+
+.heroBrandSub {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  text-align: center;
+  padding-left: 0.34em; /* offset for centering */
+}
+
+@media (min-width: 768px) {
+  .heroBrandSub {
+    font-size: 13px;
+  }
+}
+
+.heroBrandSub2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+  padding-left: 0.34em; /* offset for centering */
+}
+
+@media (min-width: 768px) {
+  .heroBrandSub2 {
+    font-size: 13px;
+  }
+}
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 40px 0 48px 0;
+  text-align: center;
+  padding-left: 0.26em; /* offset for centering */
+}
+
+@media (min-width: 768px) {
+  .tagline {
+    font-size: 12px;
+  }
+}
+
+/* Outlined Box CTA button matching design exactly */
+.boxedBtn {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  padding: 16px 38px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+.boxedBtn:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}

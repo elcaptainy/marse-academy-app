@@ -1,0 +1,161 @@
+.section {
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: 1440px;
+  margin: 128px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C7A56A;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #0A0A0A;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 56px;
+  }
+}
+
+.carouselWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.testimonialCard {
+  background: #E8E2DA;
+  border: 1px solid rgba(47, 47, 47, 0.1);
+  box-shadow: 0 40px 100px -20px rgba(10, 10, 10, 0.05);
+  border-radius: 12px;
+  padding: 48px 32px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .testimonialCard {
+    padding: 64px 80px;
+  }
+}
+
+.quoteIcon {
+  font-size: 48px;
+  color: rgba(199, 165, 106, 0.35);
+  margin-bottom: 24px;
+}
+
+.quoteText {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #0A0A0A;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .quoteText {
+    font-size: 24px;
+  }
+}
+
+.authorWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.authorName {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0A0A0A;
+}
+
+.authorRole {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #C7A56A;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.navBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #E8E2DA;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(10, 10, 10, 0.02);
+  transition: all 0.3s ease;
+  color: #2F2F2F;
+}
+
+.navBtn:hover {
+  background: #C7A56A;
+  color: #0A0A0A;
+  border-color: #C7A56A;
+  transform: scale(1.05);
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(47, 47, 47, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  background: #C7A56A;
+  width: 24px;
+  border-radius: 4px;
+}

@@ -1,0 +1,957 @@
+/* PREMIUM SPLIT SCREEN CHECKOUT MODULE */
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #050505;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  gap: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #C7A56A;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.checkoutLayout {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+@media (max-width: 960px) {
+  .checkoutLayout {
+    flex-direction: column;
+  }
+}
+
+/* LEFT PANEL: PLAN SUMMARY */
+.planPanel {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 64px;
+  color: #ffffff;
+  position: relative;
+  min-height: 100vh;
+  box-shadow: inset -20px 0 80px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 960px) {
+  .planPanel {
+    min-height: auto;
+    padding: 32px 24px;
+  }
+}
+
+.planPanelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.btnBack {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.btnBack:hover {
+  color: #ffffff;
+}
+
+.checkoutLogo {
+  height: 36px;
+  width: auto;
+}
+
+.planSummaryBox {
+  margin: auto 0;
+  max-width: 480px;
+}
+
+@media (max-width: 960px) {
+  .planSummaryBox {
+    margin: 24px 0;
+  }
+}
+
+.summaryLabel {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #C7A56A;
+  margin-bottom: 12px;
+}
+
+.summaryPlanName {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+}
+
+.summaryPlanDesc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.summaryPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+.summaryPriceValue {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 54px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.summaryPricePeriod {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.featuresSection h3 {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 16px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.summaryFeaturesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.summaryFeaturesList li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.summaryFeaturesList li svg {
+  width: 16px;
+  height: 16px;
+  color: #C7A56A;
+  flex-shrink: 0;
+}
+
+.planPanelFooter {
+  margin-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+}
+
+.securityTrustBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.securityTrustBadge svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* RIGHT PANEL: PAYMENT FORM */
+.formPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 80px;
+  background-color: #fafafa;
+}
+
+@media (max-width: 1200px) {
+  .formPanel {
+    padding: 48px 40px;
+  }
+}
+
+@media (max-width: 960px) {
+  .formPanel {
+    padding: 40px 24px;
+    background-color: #ffffff;
+  }
+}
+
+.formPanelContent {
+  max-width: 440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.secureHeaderMobile {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .secureHeaderMobile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #E8E2DA;
+    padding-bottom: 16px;
+  }
+  .secureHeaderMobile img {
+    height: 28px;
+  }
+  .secureHeaderMobile span {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+  }
+}
+
+.portalTitle {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.portalSubtitle {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 36px;
+  line-height: 1.5;
+}
+
+.checkoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #444444;
+}
+
+.inputGroup input {
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14.5px;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.inputGroup input:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 1px #000000;
+}
+
+.inputIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIconWrapper input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.cardIcon {
+  position: absolute;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  color: #94a3b8;
+}
+
+.inputRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.errorBanner {
+  background-color: rgba(255, 74, 74, 0.08);
+  border: 1px solid rgba(255, 74, 74, 0.15);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ff4a4a;
+  font-size: 13.5px;
+}
+
+.errorBanner svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.btnPay {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.btnPay:hover {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.btnPay:disabled {
+  background-color: #94a3b8;
+  border-color: #94a3b8;
+  color: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.btnSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.termsNote {
+  font-size: 11.5px;
+  color: #C7A56A;
+  line-height: 1.5;
+  margin-top: 24px;
+  text-align: center;
+}
+
+/* SUCCESS & FAILURE PORTALS (WHITE & BLACK LUXURY DESIGN WITH DYNAMIC MICRO-ANIMATIONS) */
+
+.successWrapper, .failureWrapper {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  font-family: 'Inter', sans-serif;
+  color: #000000;
+  padding: 24px;
+}
+
+.successCard, .failureCard {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  padding: 48px;
+  border: 1px solid #E8E2DA;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sequential Fade-in for elements inside cards */
+.successCard > *, .failureCard > * {
+  opacity: 0;
+  animation: fadeInElement 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.successCard > *:nth-child(1), .failureCard > *:nth-child(1) { animation-delay: 0.1s; } /* Icon */
+.successCard > *:nth-child(2), .failureCard > *:nth-child(2) { animation-delay: 0.2s; } /* Title */
+.successCard > *:nth-child(3), .failureCard > *:nth-child(3) { animation-delay: 0.3s; } /* Subtitle */
+.successCard > *:nth-child(4), .failureCard > *:nth-child(4) { animation-delay: 0.4s; } /* Receipt */
+.successCard > *:nth-child(5), .failureCard > *:nth-child(5) { animation-delay: 0.5s; } /* Instructions */
+.successCard > *:nth-child(6), .failureCard > *:nth-child(6) { animation-delay: 0.6s; } /* Button */
+
+@keyframes fadeInElement {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* PULSING GREEN CIRCLE FOR SUCCESS */
+.successIconWrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.08);
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px auto;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  animation: popInBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, pulseGreen 2.2s infinite 0.6s;
+}
+
+.successIconWrapper svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* PULSING RED CIRCLE FOR FAILURE */
+.failureIconWrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px auto;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  animation: popInBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, pulseRed 2.2s infinite 0.6s;
+}
+
+.failureIconWrapper svg {
+  width: 36px;
+  height: 36px;
+}
+
+@keyframes popInBounce {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.3); }
+  70% { box-shadow: 0 0 0 16px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes pulseRed {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3); }
+  70% { box-shadow: 0 0 0 16px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.successTitle {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #10b981;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.failureTitle {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #ef4444;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.successSubtitle, .failureSubtitle {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.successReceipt, .failureReceipt {
+  border-top: 1px solid #E8E2DA;
+  border-bottom: 1px solid #E8E2DA;
+  padding: 20px 0;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.receiptRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666666;
+}
+
+.receiptRow span:last-child {
+  color: #000000;
+  font-weight: 600;
+}
+
+.receiptApproved {
+  color: #10b981 !important;
+  font-size: 11px;
+  font-weight: 700;
+  background-color: rgba(16, 185, 129, 0.08);
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  letter-spacing: 0.05em;
+}
+
+.receiptDeclined {
+  color: #ef4444 !important;
+  font-size: 11px;
+  font-weight: 700;
+  background-color: rgba(239, 68, 68, 0.08);
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  letter-spacing: 0.05em;
+}
+
+.receiptPrice {
+  color: #000000 !important;
+  font-size: 16px;
+  font-weight: 700 !important;
+}
+
+.receiptErrorText {
+  color: #ef4444 !important;
+  font-weight: 700 !important;
+}
+
+.successInstructions, .failureInstructions {
+  font-size: 13.5px;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.btnSuccessReturn, .btnFailureRetry {
+  padding: 15px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  border: none;
+}
+
+.btnSuccessReturn {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.btnSuccessReturn:hover {
+  background-color: #222222;
+  border-color: #222222;
+}
+
+.btnFailureRetry {
+  background-color: #ef4444;
+  color: #ffffff;
+  border: 1px solid #ef4444;
+}
+
+.btnFailureRetry:hover {
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #050505;
+  border: 1px solid #1c1c1c;
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  font-family: 'Inter', sans-serif;
+  min-width: 320px;
+  max-width: 450px;
+  justify-content: space-between;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.toastSuccess {
+  border-left: 3px solid #ffffff;
+}
+
+.toastError {
+  border-left: 3px solid #ff4a4a;
+}
+
+.toastContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toastIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.toastClose {
+  background: none;
+  border: none;
+  color: #C7A56A;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.toastClose:hover {
+  color: #ffffff;
+}
+
+/* LUXURY CREDIT CARD PREVIEW */
+.creditCardWrapper {
+  perspective: 1000px;
+  margin-bottom: 28px;
+  width: 100%;
+}
+
+.creditCard {
+  width: 100%;
+  height: 210px;
+  background: linear-gradient(135deg, #161616 0%, #0d0d0d 100%);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 16px;
+  position: relative;
+  padding: 24px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.creditCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cardTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardChip {
+  width: 38px;
+  height: 28px;
+  background: linear-gradient(135deg, #fed65b 0%, #C7A56A 100%);
+  border-radius: 4px;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+.cardChip::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 22px;
+  height: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+}
+
+.cardBrandLogo {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C7A56A;
+  font-weight: bold;
+}
+
+.cardNumberDisplay {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  margin: 20px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.cardBottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cardLabel {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 4px;
+}
+
+.cardValue {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.paymentMethodsRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.paymentMethodsLabel {
+  font-size: 10px;
+  color: #C7A56A;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.paymentLogoList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.paymentLogoItem {
+  height: 20px;
+  width: auto;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.paymentLogoItem:hover {
+  opacity: 0.9;
+}
+
+/* BRAND TEXT LOGO RULES */
+.logoWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  line-height: 1.1;
+}
+
+.logoAbbr {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.logoDivider {
+  opacity: 1.0;
+  font-weight: 200;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.logoMain {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.logoSub {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+}
+
+.logoSub2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Mobile Small Text Logo version */
+.logoWrapperSmall {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  line-height: 1.1;
+}
+
+.logoAbbrSmall {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #000000;
+}
+
+.logoDividerSmall {
+  opacity: 1.0;
+  font-weight: 200;
+  font-size: 16px;
+  color: #000000;
+}
+
+.logoTextSmall {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoMainSmall {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+}

@@ -1,0 +1,357 @@
+/* ── Section Layout ───────────────────────────────────── */
+.section {
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #C7A56A;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #0A0A0A;
+  margin-bottom: 24px;
+}
+
+/* ── Bento Grid ───────────────────────────────────────── */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+  grid-auto-rows: 250px;
+}
+
+@media (min-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+  }
+}
+
+.bentoItem {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000000;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .largeSquare { grid-column: span 2; grid-row: span 2; }
+  .wideRect    { grid-column: span 2; grid-row: span 1; }
+  .tallRect    { grid-column: span 1; grid-row: span 2; }
+  .smallSquare { grid-column: span 1; grid-row: span 1; }
+}
+
+.media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s ease;
+  display: block;
+  pointer-events: none; /* Prevent video tag from capturing clicks on mobile */
+}
+
+.bentoItem:hover .media {
+  transform: scale(1.07);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  pointer-events: none; /* Let clicks pass through to bentoItem */
+}
+
+.bentoItem:hover .overlay {
+  opacity: 1;
+}
+
+.overlayIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(199, 165, 106, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #C7A56A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.bentoItem:hover .overlayIcon {
+  transform: scale(1.1);
+  background: rgba(199, 165, 106, 0.3);
+}
+
+.overlayLabel {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+}
+
+/* ── Lightbox Backdrop ─────────────────────────────────── */
+.lightboxBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* ── Counter ────────────────────────────────────────────── */
+.lightboxCounter {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* ── Close Button ──────────────────────────────────────── */
+.lightboxClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.lightboxClose:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(90deg);
+}
+
+/* ── Nav Arrows ────────────────────────────────────────── */
+.lightboxArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.3s ease;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.lightboxArrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lightboxArrowLeft {
+  left: 16px;
+}
+
+.lightboxArrowLeft:hover {
+  transform: translateY(-50%) translateX(-3px);
+}
+
+.lightboxArrowRight {
+  right: 16px;
+}
+
+.lightboxArrowRight:hover {
+  transform: translateY(-50%) translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .lightboxArrow {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .lightboxArrowLeft {
+    left: 8px;
+  }
+  .lightboxArrowRight {
+    right: 8px;
+  }
+  .lightboxClose {
+    top: 12px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+  }
+  .lightboxCounter {
+    top: 20px;
+    font-size: 11px;
+  }
+}
+
+/* ── Media Content ─────────────────────────────────────── */
+.lightboxContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: min(1100px, calc(100vw - 160px));
+  max-height: calc(100vh - 60px);
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .lightboxContent {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+}
+
+.lightboxMedia {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  background: #0a0a0a;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* ── Caption Bar ───────────────────────────────────────── */
+.lightboxCaption {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.lightboxCaptionIcon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lightboxCaption p {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Thumbnail Strip ───────────────────────────────────── */
+.lightboxThumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  overflow-x: auto;
+  padding: 4px 4px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+  max-width: 100%;
+}
+
+.lightboxThumbs::-webkit-scrollbar {
+  height: 3px;
+}
+.lightboxThumbs::-webkit-scrollbar-track {
+  background: transparent;
+}
+.lightboxThumbs::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 99px;
+}
+
+.lightboxThumb {
+  flex-shrink: 0;
+  width: 60px;
+  height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.5;
+  background: #111;
+  padding: 0;
+}
+
+.lightboxThumb:hover {
+  opacity: 0.8;
+  transform: scale(1.06);
+}
+
+.lightboxThumbActive {
+  border-color: #C7A56A;
+  opacity: 1;
+}
+
+.lightboxThumbMedia {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

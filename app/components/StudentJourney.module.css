@@ -1,0 +1,189 @@
+.section {
+  padding: 100px 24px;
+  background-color: #0A0A0A;
+  border-top: 1px solid rgba(199, 165, 106, 0.15);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px auto;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #C7A56A;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 42px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin: 0 0 18px 0;
+  color: #ffffff;
+}
+
+.description {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Timeline Container */
+.timeline {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Vertical center line */
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(199, 165, 106, 0.15);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.stepWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  margin-bottom: 56px;
+}
+
+.stepWrapper:last-child {
+  margin-bottom: 0;
+}
+
+/* Left side step layout */
+.stepLeft {
+  justify-content: flex-start;
+}
+
+/* Right side step layout */
+.stepRight {
+  justify-content: flex-end;
+}
+
+/* Dot on vertical center line */
+.dot {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #0A0A0A;
+  border: 1px solid #C7A56A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.dotInner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #C7A56A;
+}
+
+/* Card Content Box */
+.card {
+  position: relative;
+  width: 44%;
+  background-color: #141414;
+  border: 1px solid rgba(199, 165, 106, 0.15);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(10, 10, 10, 0.4);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  border-color: #C7A56A;
+  transform: translateY(-2px);
+}
+
+.stepNum {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: rgba(199, 165, 106, 0.08);
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  line-height: 1;
+}
+
+.stepTitle {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stepDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+/* Responsive layout updates */
+@media (max-width: 768px) {
+  .line {
+    left: 20px;
+    transform: none;
+  }
+  .dot {
+    left: 20px;
+  }
+  .stepWrapper {
+    justify-content: flex-end;
+  }
+  .card {
+    width: calc(100% - 48px);
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 32px;
+  }
+  .card {
+    padding: 24px;
+  }
+  .stepNum {
+    font-size: 32px;
+    top: 12px;
+    right: 16px;
+  }
+}

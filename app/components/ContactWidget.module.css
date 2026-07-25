@@ -1,0 +1,147 @@
+.wrapper {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* Greeting bubble */
+.bubble {
+  background: #ffffff;
+  border: 1px solid #C7A56A;
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0 12px 32px rgba(10, 10, 10, 0.08);
+  max-width: 255px;
+  position: relative;
+}
+
+.bubbleText {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: #0A0A0A;
+  line-height: 1.5;
+  margin: 0;
+  padding-right: 12px;
+}
+
+.bubbleName {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #C7A56A;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.bubbleCloseBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #2F2F2F;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 4px;
+  transition: color 0.2s ease;
+}
+
+.bubbleCloseBtn:hover {
+  color: #C7A56A;
+}
+
+/* Action buttons row */
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(10,10,10,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.actionBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10,10,10,0.2);
+}
+
+.whatsappBtn {
+  background-color: #25D366;
+  color: white;
+}
+
+.emailBtn {
+  background-color: #ffffff;
+  color: #0A0A0A;
+  border: 1px solid #E8E2DA;
+}
+
+.actionBtn svg {
+  flex-shrink: 0;
+}
+
+/* Main toggle button */
+.mainBtn {
+  width: 60px;
+  height: 60px;
+  border-radius: 9999px;
+  background-color: #0A0A0A;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(10,10,10,0.25);
+  transition: background-color 0.3s, transform 0.3s;
+  position: relative;
+}
+
+.mainBtn:hover {
+  background-color: #C7A56A;
+  color: #0A0A0A;
+  transform: scale(1.08);
+}
+
+.mainBtn svg {
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+/* Pulse ring */
+.pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 2px solid rgba(199, 165, 106, 0.4);
+  animation: pulse 2.5s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  70% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}

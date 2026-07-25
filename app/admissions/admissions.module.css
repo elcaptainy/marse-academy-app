@@ -1,0 +1,190 @@
+.main {
+  background-color: #ffffff;
+  color: #0A0A0A;
+  min-height: 100vh;
+  padding-top: 80px; /* navbar offset */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero Section */
+.heroSection {
+  padding: 120px 0 60px 0;
+  background-color: #ffffff;
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.subtitleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #8E8A83;
+  text-transform: uppercase;
+}
+
+.subtitleLine {
+  width: 32px;
+  height: 2px;
+  background-color: #8E8A83;
+  margin-top: 8px;
+}
+
+.heroTitle {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.015em;
+  color: #0A0A0A;
+  margin: 0 0 28px 0;
+  text-transform: uppercase;
+}
+
+.heroLead {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #2F2F2F;
+  font-weight: 300;
+}
+
+/* Journey Section */
+.journeySection {
+  padding: 100px 0;
+  background-color: #F7F5F2; /* Warm Ivory */
+  border-top: 1px solid #E8E2DA;
+  border-bottom: 1px solid #E8E2DA;
+}
+
+.journeyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.journeyCard {
+  background-color: #ffffff;
+  border: 1px solid #E8E2DA;
+  padding: 48px 36px;
+  border-radius: 12px; /* Rounded corners */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journeyCard:hover {
+  border-color: #C7A56A;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(10, 10, 10, 0.02);
+}
+
+.stepNum {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 38px;
+  font-weight: 400;
+  color: #C7A56A; /* Champagne Gold */
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.stepTitle {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #0A0A0A;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+}
+
+.stepDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #2F2F2F;
+  margin: 0;
+}
+
+/* Form Section */
+.formSection {
+  padding: 120px 0 140px 0;
+  background-color: #ffffff;
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.formTitle {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #0A0A0A;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.formLead {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #2F2F2F;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .journeyGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .heroTitle {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .journeyGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroTitle {
+    font-size: 36px;
+  }
+  .heroSection {
+    padding: 80px 0 40px 0;
+  }
+  .journeySection,
+  .formSection {
+    padding: 80px 0;
+  }
+  .journeyCard {
+    padding: 32px 24px;
+  }
+}

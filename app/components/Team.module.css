@@ -1,0 +1,275 @@
+.section {
+  position: relative;
+  background-color: #F7F5F2;
+  height: 300vh; /* creates scroll space for horizontal movement */
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-left: 24px;
+}
+
+@media (min-width: 768px) {
+  .stickyContainer {
+    padding-left: 80px;
+  }
+}
+
+.intro {
+  min-width: 300px;
+  max-width: 400px;
+  margin-right: 64px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .intro {
+    min-width: 400px;
+  }
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #C7A56A;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #0A0A0A;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+
+.description {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #2F2F2F;
+  line-height: 1.6;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 32px;
+  padding-right: 80px; /* space at the end of scroll */
+}
+
+.card {
+  width: 300px;
+  height: 450px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background-color: #0A0A0A;
+  box-shadow: 0 40px 100px -20px rgba(10, 10, 10, 0.15);
+  transition: transform 0.5s ease;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 400px;
+    height: 600px;
+  }
+}
+
+.card:hover {
+  transform: translateY(-16px);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.85), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+}
+
+.memberName {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.memberRole {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C7A56A;
+}
+
+/* Modal Styling */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modalContainer {
+  background-color: #ffffff;
+  border: 1px solid #E8E2DA;
+  border-radius: 12px;
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+  box-shadow: 0 50px 100px rgba(10, 10, 10, 0.2);
+}
+
+@media (min-width: 768px) {
+  .modalContainer {
+    grid-template-columns: 1.1fr 1fr;
+    max-height: 80vh;
+    overflow: hidden;
+  }
+}
+
+.videoSection {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  background: #0A0A0A;
+}
+
+@media (min-width: 768px) {
+  .videoSection {
+    height: 100%;
+    min-height: 500px;
+  }
+}
+
+.modalVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalOverlayGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(10, 10, 10, 0.8));
+  pointer-events: none;
+}
+
+.infoSection {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: #E8E2DA;
+  border: 1px solid #E8E2DA;
+  color: #0A0A0A;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: #C7A56A;
+  color: #0A0A0A;
+  border-color: #C7A56A;
+  transform: rotate(90deg);
+}
+
+.modalName {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #0A0A0A;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.modalRole {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #C7A56A;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+}
+
+.modalBio {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #2F2F2F;
+  margin-bottom: 32px;
+}
+
+.socialRow {
+  display: flex;
+  gap: 16px;
+}
+
+.modalSocialLink {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #E8E2DA;
+  color: #2F2F2F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.modalSocialLink:hover {
+  border-color: #C7A56A;
+  color: #C7A56A;
+  background-color: rgba(199, 165, 106, 0.1);
+}
+

@@ -1,0 +1,312 @@
+.main {
+  background-color: #ffffff;
+  color: #0A0A0A;
+  min-height: 100vh;
+  padding-top: 80px;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── HERO HEADER ── */
+.heroSection {
+  padding: 100px 0 60px 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #E8E2DA;
+}
+
+.heroContent {
+  max-width: 800px;
+  border-left: 2px solid #C7A56A;
+  padding-left: 32px;
+}
+
+.subtitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #C7A56A;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: #0A0A0A;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+}
+
+.heroLead {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4A4A4A;
+  font-weight: 300;
+}
+
+/* ── PORTAL NAVIGATION TABS ── */
+.portalTabsSection {
+  background: #F7F5F2;
+  border-bottom: 1px solid #E8E2DA;
+  padding: 16px 0;
+  position: sticky;
+  top: 80px;
+  z-index: 40;
+}
+
+.tabList {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.tabBtn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #ffffff;
+  color: #4A4A4A;
+  border: 1px solid #E8E2DA;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tabBtnActive {
+  background: #0A0A0A;
+  color: #ffffff;
+  border-color: #0A0A0A;
+}
+
+/* ── PORTAL CONTENT ── */
+.portalContent {
+  padding: 80px 0 120px 0;
+  background-color: #ffffff;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 36px;
+}
+
+.profileSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.profileCard {
+  background: #F7F5F2;
+  border: 1px solid #E8E2DA;
+  padding: 32px 24px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #C7A56A;
+  margin: 0 auto 16px auto;
+  display: block;
+}
+
+.studentName {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #0A0A0A;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+}
+
+.cohortTag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #C7A56A;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.detailList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+  border-top: 1px dashed #E8E2DA;
+  padding-top: 16px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+
+.detailLabel {
+  color: #666666;
+}
+
+.detailVal {
+  color: #0A0A0A;
+  font-weight: 600;
+}
+
+/* Main Cards Grid */
+.mainFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.feedCard {
+  background: #ffffff;
+  border: 1px solid #E8E2DA;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.feedCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E8E2DA;
+}
+
+.feedCardTitle {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #0A0A0A;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.announcementItem {
+  background: #F7F5F2;
+  border: 1px solid #E8E2DA;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.announcementTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A0A0A;
+  margin-bottom: 4px;
+}
+
+.announcementDate {
+  font-size: 11px;
+  color: #C7A56A;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.announcementText {
+  font-size: 13px;
+  color: #4A4A4A;
+  line-height: 1.6;
+}
+
+.paymentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.paymentStat {
+  background: #F7F5F2;
+  padding: 16px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #E8E2DA;
+}
+
+.statNumber {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #0A0A0A;
+}
+
+.statText {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.btnDownload {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: #0A0A0A;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btnDownload:hover {
+  background: #C7A56A;
+}
+
+@media (max-width: 991px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+  .paymentGrid {
+    grid-template-columns: 1fr;
+  }
+}

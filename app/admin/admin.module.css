@@ -1,0 +1,1650 @@
+/* World-class Premium Black & White Admin Dashboard (Stripe / Vercel Aesthetic) */
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000000;
+  font-family: 'Inter', 'Inter', sans-serif;
+  padding: 20px;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 420px;
+  background: #050505;
+  border: 1px solid #1c1c1c;
+  border-radius: 12px;
+  padding: 48px 40px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.loginLogo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 24px;
+  border: 1px solid #1c1c1c;
+}
+
+.loginTitle {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.loginSubtitle {
+  color: #888888;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 32px;
+}
+
+.loginForm {
+  text-align: left;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  color: #888888;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inputGroup input,
+.inputGroup textarea,
+.inputGroup select {
+  background-color: #000000;
+  border: 1px solid #222222;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.inputGroup textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus,
+.inputGroup select:focus {
+  outline: none;
+  border-color: #ffffff;
+  background-color: #000000;
+}
+
+.inputRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.inputGroupCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.inputGroupCheckbox input {
+  accent-color: #ffffff;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.inputGroupCheckbox label {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.errorText {
+  color: #ff4a4a;
+  font-size: 13px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.loginBtn {
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.loginBtn:hover {
+  background-color: #e5e5e5;
+  border-color: #e5e5e5;
+}
+
+/* MAIN LAYOUT */
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Inter', 'Inter', sans-serif;
+}
+
+.sidebar {
+  width: 260px;
+  background: #000000;
+  border-right: 1px solid #111111;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.sidebarHidden {
+  transform: translateX(-100%);
+}
+
+.sidebarBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  padding-left: 8px;
+}
+
+.brandLogo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #222222;
+}
+
+.sidebarBrand h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.sidebarBrand p {
+  font-size: 10px;
+  color: #888888;
+  margin: 2px 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.navItem svg {
+  color: #888888;
+  transition: color 0.2s ease;
+}
+
+.navItem:hover {
+  color: #ffffff;
+  background-color: #111111;
+}
+
+.navItem:hover svg {
+  color: #ffffff;
+}
+
+.activeNav {
+  background-color: #161616 !important;
+  color: #ffffff !important;
+}
+
+.activeNav svg {
+  color: #ffffff !important;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: 1px solid #222222;
+  color: #888888;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: auto;
+}
+
+.logoutBtn:hover {
+  background-color: #111111;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+.logoutBtn svg {
+  color: inherit;
+}
+
+.mainContent {
+  margin-left: 260px;
+  flex-grow: 1;
+  padding: 40px 48px;
+  background-color: #000000;
+  min-height: 100vh;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mainContentExpanded {
+  margin-left: 0;
+}
+
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 16px;
+}
+
+.contentHeader h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.systemStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #888888;
+  font-weight: 500;
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  background-color: #00e676;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #00e676;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* STATS CARDS */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statsCard {
+  background-color: #000000;
+  border: 1px solid #111111;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: border-color 0.2s ease;
+}
+
+.statsCard:hover {
+  border-color: #222222;
+}
+
+.statsIconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.statsCard h4 {
+  font-size: 11px;
+  color: #888888;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.statsCard h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+/* DATA TABLES */
+.dataSection {
+  background-color: #000000;
+  border: 1px solid #111111;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.dataSection h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #ffffff;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  border: 1px solid #111111;
+  border-radius: 6px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 14px 18px;
+  font-size: 13.5px;
+}
+
+.table th {
+  background-color: #0a0a0a;
+  color: #888888;
+  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-bottom: 1px solid #111111;
+}
+
+.table td {
+  border-bottom: 1px solid #111111;
+  color: #dddddd;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background-color: #050505;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.actionButtons button {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #222222;
+  background: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionBtnApprove:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.actionBtnContact:hover {
+  background-color: #111111;
+  border-color: #444444;
+}
+
+.actionBtnReject:hover {
+  background-color: #ff4a4a;
+  border-color: #ff4a4a;
+}
+
+/* STATUS BADGES */
+.statusBadgeApproved,
+.statusBadgePending,
+.statusBadgeRejected {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.statusBadgeApproved {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.statusBadgePending {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #888888;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.statusBadgeRejected {
+  background-color: rgba(255, 74, 74, 0.1);
+  color: #ff4a4a;
+  border: 1px solid rgba(255, 74, 74, 0.2);
+}
+
+/* CMS CRUD LAYOUTS */
+.gridCMS {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 28px;
+}
+
+@media (max-width: 900px) {
+  .gridCMS {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formCard {
+  background-color: #000000;
+  border: 1px solid #111111;
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.formCard h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 12px;
+  color: #ffffff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btnSave,
+.btnCancel {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnSave {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+  flex-grow: 1;
+}
+
+.btnSave:hover {
+  background-color: #e5e5e5;
+  border-color: #e5e5e5;
+}
+
+.btnCancel {
+  background: none;
+  border: 1px solid #222222;
+  color: #ffffff;
+}
+
+.btnCancel:hover {
+  background-color: #111111;
+}
+
+.listCard {
+  background-color: #000000;
+  border: 1px solid #111111;
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.listCard h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 12px;
+  color: #ffffff;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border: 1px solid #111111;
+  background-color: #030303;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.listActiveItem {
+  background-color: #111111 !important;
+  border-color: #ffffff !important;
+}
+
+.listAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #222222;
+}
+
+.listItemMeta {
+  flex-grow: 1;
+}
+
+.listItemMeta h4 {
+  margin: 0 0 2px 0;
+  font-size: 13.5px;
+  color: #ffffff;
+}
+
+.listItemMeta p {
+  margin: 0;
+  font-size: 12px;
+  color: #888888;
+}
+
+.listItemActions {
+  display: flex;
+  gap: 6px;
+}
+
+.listEditBtn,
+.listDeleteBtn {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.listEditBtn {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid #222222;
+  color: #ffffff;
+}
+
+.listEditBtn:hover {
+  background-color: #111111;
+}
+
+.listDeleteBtn {
+  background-color: rgba(255, 74, 74, 0.1);
+  border: 1px solid rgba(255, 74, 74, 0.2);
+  color: #ff4a4a;
+}
+
+.listDeleteBtn:hover {
+  background-color: #ff4a4a;
+  color: #ffffff;
+}
+
+/* PRICING EDITOR */
+.pricingEditorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.inputWithUpload {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.inputWithUpload input {
+  flex-grow: 1;
+}
+
+.uploadWrapper {
+  display: inline-block;
+}
+
+.fileInput {
+  display: none !important;
+}
+
+.btnUpload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  border: 1px solid #222222;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btnUpload:hover {
+  background-color: #111111;
+  border-color: #444444;
+}
+
+.selectedCardBorder {
+  border-color: #ffffff !important;
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #050505;
+  border: 1px solid #1c1c1c;
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  font-family: 'Inter', sans-serif;
+  min-width: 320px;
+  max-width: 450px;
+  justify-content: space-between;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.toastSuccess {
+  border-left: 3px solid #ffffff;
+}
+
+.toastError {
+  border-left: 3px solid #ff4a4a;
+}
+
+.toastContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toastIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.toastClose {
+  background: none;
+  border: none;
+  color: #888888;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.toastClose:hover {
+  color: #ffffff;
+}
+
+/* VISUAL PRICING CARD EDITOR */
+.pricingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 16px;
+}
+
+.btnCreatePlan {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnCreatePlan:hover {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.pricingEditorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+
+.planCardPreview {
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  color: #000000;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.featuredPlanCardPreview {
+  background-color: #0d0d0d;
+  border: 1px solid #222222;
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.navyPlanCardPreview {
+  background-color: #080c14;
+  border: 1px solid #141f36;
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 20px 50px rgba(8, 12, 20, 0.5);
+}
+
+.goldPlanCardPreview {
+  background: linear-gradient(135deg, #0d0d0d 0%, #201a08 50%, #0d0d0d 100%);
+  border: 1px solid #C7A56A;
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+}
+
+.cardBadge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fed65b;
+  color: #745c00;
+  padding: 4px 16px;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 18px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cardHeaderEdit {
+  margin-bottom: 24px;
+}
+
+.inputPlanTitle {
+  background: transparent;
+  border: 1px solid transparent;
+  width: 100%;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Cormorant Garamond', sans-serif;
+  margin-bottom: 8px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.planCardPreview .inputPlanTitle {
+  color: #000000;
+}
+.featuredPlanCardPreview .inputPlanTitle,
+.navyPlanCardPreview .inputPlanTitle,
+.goldPlanCardPreview .inputPlanTitle {
+  color: #ffffff;
+}
+.inputPlanTitle:hover, .inputPlanTitle:focus {
+  border-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+.textareaPlanDesc {
+  background: transparent;
+  border: 1px solid transparent;
+  width: 100%;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  resize: none;
+  min-height: 48px;
+  line-height: 1.5;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.planCardPreview .textareaPlanDesc {
+  color: #444748;
+}
+.featuredPlanCardPreview .textareaPlanDesc,
+.navyPlanCardPreview .textareaPlanDesc,
+.goldPlanCardPreview .textareaPlanDesc {
+  color: rgba(255, 255, 255, 0.7);
+}
+.textareaPlanDesc:hover, .textareaPlanDesc:focus {
+  border-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+.cardPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.inputPlanPrice {
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 36px;
+  font-weight: 800;
+  font-family: 'Cormorant Garamond', sans-serif;
+  width: 150px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.planCardPreview .inputPlanPrice {
+  color: #000000;
+}
+.featuredPlanCardPreview .inputPlanPrice,
+.navyPlanCardPreview .inputPlanPrice,
+.goldPlanCardPreview .inputPlanPrice {
+  color: #ffffff;
+}
+.inputPlanPrice:hover, .inputPlanPrice:focus {
+  border-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+.inputPlanPeriod {
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  width: 80px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.planCardPreview .inputPlanPeriod {
+  color: #444748;
+}
+.featuredPlanCardPreview .inputPlanPeriod,
+.navyPlanCardPreview .inputPlanPeriod,
+.goldPlanCardPreview .inputPlanPeriod {
+  color: rgba(255, 255, 255, 0.5);
+}
+.inputPlanPeriod:hover, .inputPlanPeriod:focus {
+  border-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+.cardFeaturesList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.cardFeatureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardFeatureIcon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.planCardPreview .cardFeatureIcon {
+  color: #000000;
+}
+.featuredPlanCardPreview .cardFeatureIcon,
+.navyPlanCardPreview .cardFeatureIcon {
+  color: #fed65b;
+}
+.goldPlanCardPreview .cardFeatureIcon {
+  color: #C7A56A;
+}
+
+.inputFeatureText {
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 13.5px;
+  font-family: 'Inter', sans-serif;
+  flex-grow: 1;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.planCardPreview .inputFeatureText {
+  color: #333333;
+}
+.featuredPlanCardPreview .inputFeatureText,
+.navyPlanCardPreview .inputFeatureText,
+.goldPlanCardPreview .inputFeatureText {
+  color: rgba(255, 255, 255, 0.9);
+}
+.inputFeatureText:hover, .inputFeatureText:focus {
+  border-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+.btnRemoveFeature {
+  background: none;
+  border: none;
+  color: #ff4a4a;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 4px;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+}
+
+.cardFeatureItem:hover .btnRemoveFeature {
+  opacity: 1;
+}
+
+.btnAddFeature {
+  background: none;
+  border: 1px dashed rgba(128, 128, 128, 0.4);
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+}
+
+.planCardPreview .btnAddFeature {
+  color: #555555;
+}
+.featuredPlanCardPreview .btnAddFeature,
+.navyPlanCardPreview .btnAddFeature,
+.goldPlanCardPreview .btnAddFeature {
+  color: #bbbbbb;
+}
+.planCardPreview .btnAddFeature:hover {
+  background-color: #f5f5f5;
+  border-color: #000000;
+}
+.featuredPlanCardPreview .btnAddFeature:hover,
+.navyPlanCardPreview .btnAddFeature:hover,
+.goldPlanCardPreview .btnAddFeature:hover {
+  background-color: #1a1a1a;
+  border-color: #ffffff;
+}
+
+.cardCheckboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(128, 128, 128, 0.15);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.planCardPreview .cardCheckboxRow {
+  color: #444748;
+}
+.featuredPlanCardPreview .cardCheckboxRow,
+.navyPlanCardPreview .cardCheckboxRow,
+.goldPlanCardPreview .cardCheckboxRow {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cardActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.btnCardSave, .btnCardDelete {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.btnCardSave {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+.btnCardSave:hover {
+  background-color: #222222;
+}
+
+.featuredPlanCardPreview .btnCardSave,
+.navyPlanCardPreview .btnCardSave,
+.goldPlanCardPreview .btnCardSave {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+}
+.featuredPlanCardPreview .btnCardSave:hover,
+.navyPlanCardPreview .btnCardSave:hover,
+.goldPlanCardPreview .btnCardSave:hover {
+  background-color: #dddddd;
+}
+
+.btnCardDelete {
+  background-color: transparent;
+  border: 1px solid #ff4a4a;
+  color: #ff4a4a;
+}
+.btnCardDelete:hover {
+  background-color: rgba(255, 74, 74, 0.1);
+}
+
+
+
+/* ══════════════════════════════════════════════
+   THEME TOGGLE BUTTON
+══════════════════════════════════════════════ */
+.themeToggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 1px solid #222222;
+  color: #888888;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.themeToggleBtn:hover {
+  border-color: #C7A56A;
+  color: #C7A56A;
+  background-color: rgba(199, 165, 106, 0.06);
+}
+
+.themeToggleIcon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ══════════════════════════════════════════════
+   LIGHT MODE OVERRIDES — applies when .lightMode
+   class is on .dashboardLayout
+══════════════════════════════════════════════ */
+
+/* Layout & sidebar */
+.lightMode.dashboardLayout {
+  background-color: #F7F5F2;
+  color: #0A0A0A;
+}
+
+.lightMode .sidebar {
+  background: #ffffff;
+  border-right: 1px solid #E8E2DA;
+}
+
+.lightMode .sidebarBrand h3 {
+  color: #0A0A0A;
+}
+
+.lightMode .sidebarBrand p {
+  color: #C7A56A;
+}
+
+.lightMode .brandLogo {
+  border-color: #E8E2DA;
+}
+
+/* Nav items */
+.lightMode .navItem {
+  color: #2F2F2F;
+}
+
+.lightMode .navItem svg {
+  color: #2F2F2F;
+}
+
+.lightMode .navItem:hover {
+  background-color: #F7F5F2;
+  color: #0A0A0A;
+}
+
+.lightMode .navItem:hover svg {
+  color: #C7A56A;
+}
+
+.lightMode .activeNav {
+  background-color: #F7F5F2 !important;
+  color: #C7A56A !important;
+  border-left: 2px solid #C7A56A;
+}
+
+.lightMode .activeNav svg {
+  color: #C7A56A !important;
+}
+
+/* Logout & theme toggle */
+.lightMode .logoutBtn {
+  border-color: #E8E2DA;
+  color: #2F2F2F;
+}
+
+.lightMode .logoutBtn:hover {
+  background-color: #F7F5F2;
+  color: #0A0A0A;
+  border-color: #E8E2DA;
+}
+
+.lightMode .themeToggleBtn {
+  border-color: #E8E2DA;
+  color: #2F2F2F;
+}
+
+.lightMode .themeToggleBtn:hover {
+  border-color: #C7A56A;
+  color: #C7A56A;
+  background-color: rgba(199, 165, 106, 0.06);
+}
+
+/* Main content */
+.lightMode .mainContent {
+  background-color: #F7F5F2;
+}
+
+.lightMode .contentHeader {
+  border-bottom: 1px solid #E8E2DA;
+}
+
+.lightMode .contentHeader h2 {
+  color: #0A0A0A;
+}
+
+.lightMode .systemStatus {
+  color: #2F2F2F;
+}
+
+/* Stats Cards */
+.lightMode .statsCard {
+  background-color: #ffffff;
+  border: 1px solid #E8E2DA;
+  color: #0A0A0A;
+}
+
+.lightMode .statsCard:hover {
+  border-color: #C7A56A;
+  box-shadow: 0 4px 20px rgba(199, 165, 106, 0.1);
+}
+
+.lightMode .statsIconWrapper {
+  background-color: #F7F5F2;
+  color: #C7A56A;
+}
+
+.lightMode .statsCard h4 {
+  color: #888888;
+}
+
+.lightMode .statsCard h3 {
+  color: #0A0A0A;
+}
+
+/* Data sections / panels */
+.lightMode .dataSection {
+  background-color: #ffffff;
+  border: 1px solid #E8E2DA;
+}
+
+.lightMode .dataSection h3 {
+  color: #0A0A0A;
+}
+
+.lightMode .tableWrapper {
+  border-color: #E8E2DA;
+}
+
+/* Tables */
+.lightMode .table th {
+  background-color: #F7F5F2;
+  color: #2F2F2F;
+  border-bottom: 1px solid #E8E2DA;
+}
+
+.lightMode .table td {
+  color: #0A0A0A;
+  border-bottom: 1px solid #F7F5F2;
+}
+
+.lightMode .table tr:hover td {
+  background-color: #F7F5F2;
+}
+
+/* Forms & inputs */
+.lightMode .inputGroup label {
+  color: #2F2F2F;
+}
+
+.lightMode .inputGroup input,
+.lightMode .inputGroup textarea,
+.lightMode .inputGroup select {
+  background-color: #ffffff;
+  border: 1px solid #E8E2DA;
+  color: #0A0A0A;
+}
+
+.lightMode .inputGroup input:focus,
+.lightMode .inputGroup textarea:focus,
+.lightMode .inputGroup select:focus {
+  outline: none;
+  border-color: #C7A56A;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(199, 165, 106, 0.12);
+}
+
+.lightMode .inputGroup input::placeholder,
+.lightMode .inputGroup textarea::placeholder {
+  color: #aaa;
+}
+
+.lightMode .inputGroupCheckbox label {
+  color: #0A0A0A;
+}
+
+.lightMode .inputGroupCheckbox input {
+  accent-color: #C7A56A;
+}
+
+/* Buttons */
+.lightMode .btnSave {
+  background-color: #0A0A0A;
+  color: #ffffff;
+  border: 1px solid #0A0A0A;
+}
+
+.lightMode .btnSave:hover {
+  background-color: #C7A56A;
+  border-color: #C7A56A;
+  color: #0A0A0A;
+}
+
+.lightMode .btnAdd {
+  background-color: transparent;
+  border: 1px solid #E8E2DA;
+  color: #2F2F2F;
+}
+
+.lightMode .btnAdd:hover {
+  border-color: #C7A56A;
+  color: #C7A56A;
+}
+
+/* Section headers inside panels */
+.lightMode h3 {
+  color: #0A0A0A;
+}
+
+.lightMode h4 {
+  color: #2F2F2F;
+}
+
+.lightMode p {
+  color: #2F2F2F;
+}
+
+/* Gallery cards */
+.lightMode .galleryItem {
+  background-color: #ffffff;
+  border: 1px solid #E8E2DA;
+}
+
+.lightMode .galleryItem:hover {
+  border-color: #C7A56A;
+}
+
+/* Modals */
+.lightMode .modal,
+.lightMode .modalOverlay + div {
+  background-color: #ffffff;
+  border: 1px solid #E8E2DA;
+  color: #0A0A0A;
+}
+
+/* Tabs */
+.lightMode .tab {
+  color: #888888;
+}
+
+.lightMode .tab:hover {
+  color: #0A0A0A;
+}
+
+.lightMode .activeTab {
+  color: #0A0A0A;
+  border-bottom: 2px solid #C7A56A;
+}
+
+/* Badge / Status chips */
+.lightMode .badge {
+  background-color: #E8E2DA;
+  color: #2F2F2F;
+}
+
+/* Dividers */
+.lightMode hr,
+.lightMode .divider {
+  border-color: #E8E2DA;
+}
+
+/* Scrollbar in light mode */
+.lightMode ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lightMode ::-webkit-scrollbar-track {
+  background: #F7F5F2;
+}
+
+.lightMode ::-webkit-scrollbar-thumb {
+  background: #E8E2DA;
+  border-radius: 3px;
+}
+
+.lightMode ::-webkit-scrollbar-thumb:hover {
+  background: #C7A56A;
+}
+
+/* BRAND TEXT LOGO RULES */
+.logoWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  line-height: 1.1;
+  background-color: #000000;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logoAbbr {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.logoDivider {
+  opacity: 0.35;
+  font-weight: 200;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.logoMain {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.logoSub {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 2px 0;
+}
+
+.logoSub2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+/* Mobile Small Text Logo version */
+.logoWrapperSmall {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  line-height: 1.1;
+}
+
+.logoAbbrSmall {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+}
+
+.logoDividerSmall {
+  opacity: 0.35;
+  font-weight: 200;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.logoTextSmall {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoMainSmall {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* LIGHT MODE OVERRIDES */
+.lightMode .logoWrapper {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.lightMode .logoWrapper .logoAbbr {
+  color: #000000;
+}
+
+.lightMode .logoWrapper .logoDivider {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.lightMode .logoWrapper .logoMain {
+  color: #000000;
+}
+
+.lightMode .logoWrapper .logoSub,
+.lightMode .logoWrapper .logoSub2 {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.lightMode .logoWrapperSmall .logoAbbrSmall {
+  color: #000000;
+}
+
+.lightMode .logoWrapperSmall .logoDividerSmall {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.lightMode .logoWrapperSmall .logoMainSmall {
+  color: #000000;
+}

@@ -1,0 +1,140 @@
+.section {
+  padding: 120px 24px;
+  background-color: #ffffff;
+  color: #0A0A0A;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Left Column: Image */
+.imageCol {
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(10, 10, 10, 0.05);
+  border: 1px solid #E8E2DA;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right Column: Text content */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 500px;
+}
+
+.subtitleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #C7A56A;
+  text-transform: uppercase;
+}
+
+.subtitleLine {
+  width: 32px;
+  height: 1px;
+  background-color: #C7A56A;
+  margin-top: 8px;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: #0A0A0A;
+  margin: 0 0 28px 0;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #2F2F2F;
+  margin: 0 0 24px 0;
+}
+
+.paragraph:last-of-type {
+  margin-bottom: 36px;
+}
+
+.learnMoreBtn {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  background-color: #C7A56A;
+  color: #0A0A0A;
+  border: 1px solid #C7A56A;
+  padding: 16px 40px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.learnMoreBtn:hover {
+  background-color: transparent;
+  color: #C7A56A;
+}
+
+/* Responsive layout */
+@media (max-width: 991px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .section {
+    padding: 80px 24px;
+  }
+  .imageWrapper {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 32px;
+  }
+  .section {
+    padding: 60px 20px;
+  }
+}
