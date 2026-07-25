@@ -275,27 +275,21 @@ function CheckoutContent() {
       <div className={styles.formPanel}>
         <div className={styles.formPanelContent} style={{ maxWidth: '540px' }}>
           
-          {/* Header Title & Login Link */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '28px' }}>
-            <div>
-              <h1 style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '28px',
-                fontWeight: '800',
-                color: '#111111',
-                margin: '0 0 4px 0',
-                letterSpacing: '-0.02em'
-              }}>
-                Confirm your purchase
-              </h1>
-              <p style={{ margin: 0, fontSize: '13px', color: '#666' }}>
-                Enrolling in: <strong style={{ color: '#000' }}>{selectedPlan.name} ({selectedPlan.price})</strong>
-              </p>
-            </div>
-            <div style={{ textAlign: 'right', fontSize: '13px', color: '#666' }}>
-              Already have an account? <br />
-              <a href="/admin" style={{ color: '#000', fontWeight: '700', textDecoration: 'underline' }}>Log in</a>
-            </div>
+          {/* Header Title */}
+          <div style={{ marginBottom: '28px' }}>
+            <h1 style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '28px',
+              fontWeight: '800',
+              color: '#111111',
+              margin: '0 0 4px 0',
+              letterSpacing: '-0.02em'
+            }}>
+              Confirm your purchase
+            </h1>
+            <p style={{ margin: 0, fontSize: '13px', color: '#666' }}>
+              Enrolling in: <strong style={{ color: '#000' }}>{selectedPlan.name} ({selectedPlan.price})</strong>
+            </p>
           </div>
 
           {/* ACCORDION RADIO PAYMENT METHODS */}
