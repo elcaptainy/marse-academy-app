@@ -39,6 +39,22 @@
   ],
   "bentoGallery": [
     {
+      "id": "1783975197982",
+      "type": "VIDEO",
+      "url": "/uploads/1783975244023-hero.mp4",
+      "size": "TALL",
+      "altText": "New Gallery Item",
+      "order": 0
+    },
+    {
+      "id": "1783975199378",
+      "type": "VIDEO",
+      "url": "/uploads/1783975215933-feature-1.mp4",
+      "size": "TALL",
+      "altText": "New Gallery Item",
+      "order": 1
+    },
+    {
       "id": "1",
       "type": "VIDEO",
       "url": "/london-workshop.mp4",
@@ -71,19 +87,19 @@
       "order": 5
     },
     {
-      "id": "5",
-      "type": "VIDEO",
-      "url": "/vienna-workshop.mp4",
-      "size": "TALL",
-      "altText": "Vienna Workshop",
-      "order": 6
-    },
-    {
       "id": "6",
       "type": "IMAGE",
       "url": "/uploads/1784085545197-Ferrari_red_eco-leather_jumpsuitUNAPOLOGETIC_2025Great_work_@marika_stylist_london_@marse_studio.jpg",
       "size": "TALL",
       "altText": "Excellence",
+      "order": 6
+    },
+    {
+      "id": "5",
+      "type": "VIDEO",
+      "url": "/vienna-workshop.mp4",
+      "size": "TALL",
+      "altText": "Vienna Workshop",
       "order": 7
     },
     {
@@ -93,22 +109,6 @@
       "size": "WIDE",
       "altText": "Networking",
       "order": 8
-    },
-    {
-      "id": "1783975197982",
-      "type": "VIDEO",
-      "url": "/uploads/1783975244023-hero.mp4",
-      "size": "TALL",
-      "altText": "New Gallery Item",
-      "order": 0
-    },
-    {
-      "id": "1783975199378",
-      "type": "VIDEO",
-      "url": "/uploads/1783975215933-feature-1.mp4",
-      "size": "TALL",
-      "altText": "New Gallery Item",
-      "order": 1
     },
     {
       "id": "1784250973558",
