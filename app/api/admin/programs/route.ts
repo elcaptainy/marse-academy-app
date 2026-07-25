@@ -1,8 +1,6 @@
 import { isAuthorized } from '@/lib/auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { createProgram, updateProgram, deleteProgram } from '@/lib/db';
-
-
+import { createProgram, updateProgram, deleteProgram, reorderPrograms } from '@/lib/db';
 
 export async function POST(request: NextRequest) {
   if (!isAuthorized(request)) {
@@ -28,6 +26,10 @@ export async function PUT(request: NextRequest) {
   }
   try {
     const body = await request.json();
+    if (Array.isArray(body.orderedIds)) {
+      const items = await reorderPrograms(body.orderedIds);
+      return NextResponse.json({ success: true, data: items });
+    }
     const { id, title, desc, img, order } = body;
     if (!id) return NextResponse.json({ success: false, error: 'Program ID required' }, { status: 400 });
     const item = await updateProgram(id, {

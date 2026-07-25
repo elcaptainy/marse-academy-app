@@ -1244,7 +1244,152 @@ export default function AdminDashboard() {
       });
       const data = await res.json();
       if (data.success) {
-        showToast('Subject sequence updated!', 'success');
+        showToast('ELcaptain: Core Pillars order updated!', 'success');
+      } else {
+        loadAllData();
+      }
+    } catch (err) {
+      loadAllData();
+    }
+  };
+
+  // ELcaptain: Reorder Bento Gallery Items
+  const handleMoveGallery = async (index: number, direction: 'UP' | 'DOWN') => {
+    const newIndex = direction === 'UP' ? index - 1 : index + 1;
+    if (newIndex < 0 || newIndex >= gallery.length) return;
+
+    const newList = [...gallery];
+    const [moved] = newList.splice(index, 1);
+    newList.splice(newIndex, 0, moved);
+
+    setGallery(newList);
+    const orderedIds = newList.map(item => item.id);
+
+    try {
+      const res = await fetch('/api/admin/gallery', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderedIds })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('ELcaptain: Bento Gallery order updated!', 'success');
+      } else {
+        loadAllData();
+      }
+    } catch (err) {
+      loadAllData();
+    }
+  };
+
+  // ELcaptain: Reorder Mentors
+  const handleMoveMentor = async (index: number, direction: 'UP' | 'DOWN') => {
+    const newIndex = direction === 'UP' ? index - 1 : index + 1;
+    if (newIndex < 0 || newIndex >= mentors.length) return;
+
+    const newList = [...mentors];
+    const [moved] = newList.splice(index, 1);
+    newList.splice(newIndex, 0, moved);
+
+    setMentors(newList);
+    const orderedIds = newList.map(m => m.id);
+
+    try {
+      const res = await fetch('/api/admin/mentors', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderedIds })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('ELcaptain: Mentors order updated!', 'success');
+      } else {
+        loadAllData();
+      }
+    } catch (err) {
+      loadAllData();
+    }
+  };
+
+  // ELcaptain: Reorder Pricing Plans
+  const handleMovePricing = async (index: number, direction: 'UP' | 'DOWN') => {
+    const newIndex = direction === 'UP' ? index - 1 : index + 1;
+    if (newIndex < 0 || newIndex >= pricing.length) return;
+
+    const newList = [...pricing];
+    const [moved] = newList.splice(index, 1);
+    newList.splice(newIndex, 0, moved);
+
+    setPricing(newList);
+    const orderedIds = newList.map(p => p.id);
+
+    try {
+      const res = await fetch('/api/admin/pricing', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderedIds })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('ELcaptain: Pricing Tier order updated!', 'success');
+      } else {
+        loadAllData();
+      }
+    } catch (err) {
+      loadAllData();
+    }
+  };
+
+  // ELcaptain: Reorder Student Journey Steps
+  const handleMoveJourney = async (index: number, direction: 'UP' | 'DOWN') => {
+    const newIndex = direction === 'UP' ? index - 1 : index + 1;
+    if (newIndex < 0 || newIndex >= journeySteps.length) return;
+
+    const newList = [...journeySteps];
+    const [moved] = newList.splice(index, 1);
+    newList.splice(newIndex, 0, moved);
+
+    setJourneySteps(newList);
+    const orderedIds = newList.map(s => s.id);
+
+    try {
+      const res = await fetch('/api/admin/journey', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderedIds })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('ELcaptain: Journey Step sequence updated!', 'success');
+      } else {
+        loadAllData();
+      }
+    } catch (err) {
+      loadAllData();
+    }
+  };
+
+  // ELcaptain: Reorder Programs
+  const handleMoveProgram = async (index: number, direction: 'UP' | 'DOWN') => {
+    const newIndex = direction === 'UP' ? index - 1 : index + 1;
+    if (newIndex < 0 || newIndex >= programs.length) return;
+
+    const newList = [...programs];
+    const [moved] = newList.splice(index, 1);
+    newList.splice(newIndex, 0, moved);
+
+    setPrograms(newList);
+    const orderedIds = newList.map(p => p.id);
+
+    try {
+      const res = await fetch('/api/admin/programs', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderedIds })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('ELcaptain: Programs order updated!', 'success');
       } else {
         loadAllData();
       }
@@ -2797,10 +2942,30 @@ export default function AdminDashboard() {
                   }}
                   style={{ cursor: 'move', border: '1px solid rgba(255,255,255,0.08)' }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '8px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#888' }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="19" r="1"/></svg>
-                      <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '700' }}>Slot #{index + 1}</h4>
+                  <div className={styles.slotHeader}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span className={styles.slotTitle}>Slot #{index + 1}</span>
+                      <span style={{ fontSize: '10px', background: '#D4AF37', color: '#000', fontWeight: 'bold', padding: '1px 6px', borderRadius: '3px' }}>
+                        ELcaptain
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleMoveGallery(index, 'UP')}
+                        disabled={index === 0}
+                        style={{ opacity: index === 0 ? 0.3 : 1, padding: '3px 8px', fontSize: '10px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: '#ffffff', borderRadius: '4px', cursor: 'pointer' }}
+                        title="ELcaptain: Move Up"
+                      >
+                        ⬆
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleMoveGallery(index, 'DOWN')}
+                        disabled={index === gallery.length - 1}
+                        style={{ opacity: index === gallery.length - 1 ? 0.3 : 1, padding: '3px 8px', fontSize: '10px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: '#ffffff', borderRadius: '4px', cursor: 'pointer' }}
+                        title="ELcaptain: Move Down"
+                      >
+                        ⬇
+                      </button>
                     </div>
                     <button onClick={() => handleDeleteBento(item.id)} className={styles.listDeleteBtn} style={{ fontSize: '11px', padding: '4px 10px' }}>Delete</button>
                   </div>
@@ -3145,6 +3310,24 @@ export default function AdminDashboard() {
                       </div>
 
                       <div className={styles.listItemActions}>
+                        <button
+                          type="button"
+                          onClick={() => handleMoveMentor(index, 'UP')}
+                          disabled={index === 0}
+                          style={{ opacity: index === 0 ? 0.3 : 1, padding: '4px 8px', fontSize: '11px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#ffffff', borderRadius: '4px', cursor: 'pointer' }}
+                          title="ELcaptain: Move Up"
+                        >
+                          ⬆
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleMoveMentor(index, 'DOWN')}
+                          disabled={index === mentors.length - 1}
+                          style={{ opacity: index === mentors.length - 1 ? 0.3 : 1, padding: '4px 8px', fontSize: '11px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#ffffff', borderRadius: '4px', cursor: 'pointer' }}
+                          title="ELcaptain: Move Down"
+                        >
+                          ⬇
+                        </button>
                         <button 
                           onClick={async () => {
                             const updatedHidden = !mentor.hidden;
@@ -3387,6 +3570,24 @@ export default function AdminDashboard() {
                     </div>
 
                     <div className={styles.cardActions}>
+                      <button
+                        type="button"
+                        onClick={() => handleMovePricing(index, 'UP')}
+                        disabled={index === 0}
+                        style={{ opacity: index === 0 ? 0.3 : 1, padding: '6px 12px', fontSize: '11px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#ffffff', borderRadius: '6px', cursor: 'pointer' }}
+                        title="ELcaptain: Move Up"
+                      >
+                        ⬆ Move
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleMovePricing(index, 'DOWN')}
+                        disabled={index === pricing.length - 1}
+                        style={{ opacity: index === pricing.length - 1 ? 0.3 : 1, padding: '6px 12px', fontSize: '11px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#ffffff', borderRadius: '6px', cursor: 'pointer' }}
+                        title="ELcaptain: Move Down"
+                      >
+                        ⬇ Move
+                      </button>
                       <button onClick={() => handlePricingSubmit(plan)} className={styles.btnCardSave}>
                         Save Plan
                       </button>

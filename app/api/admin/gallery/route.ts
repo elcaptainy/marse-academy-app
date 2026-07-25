@@ -1,8 +1,6 @@
 import { isAuthorized } from '@/lib/auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { updateBentoGallery, createBentoGallery, deleteBentoGallery } from '@/lib/db';
-
-
+import { updateBentoGallery, createBentoGallery, deleteBentoGallery, reorderBentoGallery } from '@/lib/db';
 
 export async function POST(request: NextRequest) {
   if (!isAuthorized(request)) {
@@ -30,6 +28,10 @@ export async function PUT(request: NextRequest) {
   }
   try {
     const body = await request.json();
+    if (Array.isArray(body.orderedIds)) {
+      const items = await reorderBentoGallery(body.orderedIds);
+      return NextResponse.json({ success: true, data: items });
+    }
     const { id, type, url, size, altText, category, order } = body;
     if (!id) return NextResponse.json({ success: false, error: 'Gallery item ID required' }, { status: 400 });
     const item = await updateBentoGallery(id, { type, url, size, altText, category, order: typeof order === 'number' ? order : undefined });

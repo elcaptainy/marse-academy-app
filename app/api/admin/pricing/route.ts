@@ -1,8 +1,6 @@
 import { isAuthorized } from '@/lib/auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { updatePricingPlan, createPricingPlan, deletePricingPlan } from '@/lib/db';
-
-
+import { updatePricingPlan, createPricingPlan, deletePricingPlan, reorderPricingPlans } from '@/lib/db';
 
 export async function POST(request: NextRequest) {
   if (!isAuthorized(request)) {
@@ -37,6 +35,11 @@ export async function PUT(request: NextRequest) {
 
   try {
     const body = await request.json();
+    if (Array.isArray(body.orderedIds)) {
+      const plans = await reorderPricingPlans(body.orderedIds);
+      return NextResponse.json({ success: true, data: plans });
+    }
+
     const { id, name, description, price, period, features, isFeatured, badge, order } = body;
 
     if (!id) {

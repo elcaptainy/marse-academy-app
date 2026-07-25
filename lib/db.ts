@@ -994,3 +994,54 @@ export async function deleteProgram(id: string) {
   if (oldImgUrl) await deleteFileIfLocal(oldImgUrl);
   return { id };
 }
+
+// 20. ELCAPTAIN BATCH REORDER FUNCTIONS
+export async function reorderBentoGallery(orderedIds: string[]) {
+  const db = await readJsonDB();
+  db.bentoGallery = (db.bentoGallery || []).map((item: any) => {
+    const idx = orderedIds.indexOf(item.id);
+    return idx !== -1 ? { ...item, order: idx } : item;
+  }).sort((a: any, b: any) => (a.order || 0) - (b.order || 0));
+  await writeJsonDB(db);
+  return db.bentoGallery;
+}
+
+export async function reorderMentors(orderedIds: string[]) {
+  const db = await readJsonDB();
+  db.mentors = (db.mentors || []).map((item: any) => {
+    const idx = orderedIds.indexOf(item.id);
+    return idx !== -1 ? { ...item, order: idx } : item;
+  }).sort((a: any, b: any) => (a.order || 0) - (b.order || 0));
+  await writeJsonDB(db);
+  return db.mentors;
+}
+
+export async function reorderPricingPlans(orderedIds: string[]) {
+  const db = await readJsonDB();
+  db.pricingPlans = (db.pricingPlans || []).map((item: any) => {
+    const idx = orderedIds.indexOf(item.id);
+    return idx !== -1 ? { ...item, order: idx } : item;
+  }).sort((a: any, b: any) => (a.order || 0) - (b.order || 0));
+  await writeJsonDB(db);
+  return db.pricingPlans;
+}
+
+export async function reorderJourneySteps(orderedIds: string[]) {
+  const db = await readJsonDB();
+  db.journeySteps = (db.journeySteps || []).map((item: any) => {
+    const idx = orderedIds.indexOf(item.id);
+    return idx !== -1 ? { ...item, order: idx } : item;
+  }).sort((a: any, b: any) => (a.order || 0) - (b.order || 0));
+  await writeJsonDB(db);
+  return db.journeySteps;
+}
+
+export async function reorderPrograms(orderedIds: string[]) {
+  const db = await readJsonDB();
+  db.programs = (db.programs || []).map((item: any) => {
+    const idx = orderedIds.indexOf(item.id);
+    return idx !== -1 ? { ...item, order: idx } : item;
+  }).sort((a: any, b: any) => (a.order || 0) - (b.order || 0));
+  await writeJsonDB(db);
+  return db.programs;
+}

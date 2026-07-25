@@ -1,8 +1,6 @@
 import { isAuthorized } from '@/lib/auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { createMentor, updateMentor, deleteMentor } from '@/lib/db';
-
-
+import { createMentor, updateMentor, deleteMentor, reorderMentors } from '@/lib/db';
 
 export async function POST(request: NextRequest) {
   if (!isAuthorized(request)) {
@@ -36,6 +34,11 @@ export async function PUT(request: NextRequest) {
 
   try {
     const body = await request.json();
+    if (Array.isArray(body.orderedIds)) {
+      const mentors = await reorderMentors(body.orderedIds);
+      return NextResponse.json({ success: true, data: mentors });
+    }
+
     const { id, name, role, image, bio, video, socials, order } = body;
 
     if (!id) {
