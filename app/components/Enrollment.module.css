@@ -1,14 +1,12 @@
 .section {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 50px 16px;
   max-width: 1440px;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding: 100px 80px;
   }
 }
 
@@ -18,37 +16,43 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 120px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 120px;
+  }
 }
 
 .logoWrapper {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   line-height: 1.1;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   background-color: #000000;
-  padding: 16px 24px;
+  padding: 12px 18px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .logoAbbr {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 300;
   letter-spacing: 0.08em;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: #ffffff;
 }
 
 .logoDivider {
   opacity: 1.0;
   font-weight: 200;
-  font-size: 24px;
+  font-size: 20px;
   color: #ffffff;
 }
 
@@ -61,20 +65,20 @@
 
 .logoMain {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: #ffffff;
-  margin: 0 0 4px 0;
+  margin: 0 0 2px 0;
   line-height: 1.2;
 }
 
 .logoSub {
   font-family: 'Inter', sans-serif;
-  font-size: 6.5px;
+  font-size: 6px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #ffffff;
   margin: 0 0 2px 0;
@@ -82,9 +86,9 @@
 
 .logoSub2 {
   font-family: 'Inter', sans-serif;
-  font-size: 6.5px;
+  font-size: 6px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #ffffff;
   margin: 0;
@@ -92,47 +96,63 @@
 
 .subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: #C7A56A;
+  color: #8E8A83;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .title {
   font-family: 'Cormorant Garamond', sans-serif;
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 800;
   color: #000000;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 @media (min-width: 768px) {
   .title {
     font-size: 80px;
+    margin-bottom: 24px;
   }
 }
 
 .description {
   font-family: 'Inter', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   color: #444748;
   max-width: 672px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
+@media (min-width: 768px) {
+  .description {
+    font-size: 18px;
+  }
+}
+
 .plansGrid {
   display: flex;
   flex-direction: row;
-  gap: 24px;
-  margin-bottom: 160px;
+  gap: 16px;
+  margin-bottom: 60px;
   position: relative;
   z-index: 10;
   overflow-x: auto;
-  padding: 24px 8px;
+  padding: 16px 4px;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 768px) {
+  .plansGrid {
+    gap: 24px;
+    margin-bottom: 160px;
+    padding: 24px 8px;
+  }
 }
 
 .plansGrid::-webkit-scrollbar {

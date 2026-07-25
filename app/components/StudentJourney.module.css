@@ -1,11 +1,17 @@
 .section {
-  padding: 100px 24px;
+  padding: 50px 16px;
   background-color: #0A0A0A;
   border-top: 1px solid rgba(199, 165, 106, 0.15);
   color: #ffffff;
   display: flex;
   justify-content: center;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 100px 24px;
+  }
 }
 
 .container {
@@ -16,31 +22,44 @@
 .header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 80px auto;
+  margin: 0 auto 40px auto;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 80px;
+  }
 }
 
 .subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  color: #C7A56A;
+  color: #8E8A83;
   margin-bottom: 12px;
 }
 
 .title {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: 42px;
+  font-size: 28px;
   font-weight: 300;
   letter-spacing: 0.05em;
-  margin: 0 0 18px 0;
+  margin: 0 0 14px 0;
   color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 42px;
+    margin-bottom: 18px;
+  }
 }
 
 .description {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
@@ -61,7 +80,7 @@
   top: 0;
   bottom: 0;
   width: 1px;
-  background-color: rgba(199, 165, 106, 0.15);
+  background-color: rgba(255, 255, 255, 0.12);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -70,7 +89,13 @@
   position: relative;
   width: 100%;
   display: flex;
-  margin-bottom: 56px;
+  margin-bottom: 36px;
+}
+
+@media (min-width: 768px) {
+  .stepWrapper {
+    margin-bottom: 56px;
+  }
 }
 
 .stepWrapper:last-child {
@@ -90,14 +115,14 @@
 /* Dot on vertical center line */
 .dot {
   position: absolute;
-  top: 40px;
+  top: 36px;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #0A0A0A;
-  border: 1px solid #C7A56A;
+  border: 1px solid #8E8A83;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,10 +130,10 @@
 }
 
 .dotInner {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background-color: #C7A56A;
+  background-color: #ffffff;
 }
 
 /* Card Content Box */
@@ -116,42 +141,54 @@
   position: relative;
   width: 44%;
   background-color: #141414;
-  border: 1px solid rgba(199, 165, 106, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 32px;
+  padding: 24px;
   box-shadow: 0 10px 30px rgba(10, 10, 10, 0.4);
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
+@media (min-width: 768px) {
+  .card {
+    padding: 32px;
+  }
+}
+
 .card:hover {
-  border-color: #C7A56A;
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 
 .stepNum {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 300;
-  color: rgba(199, 165, 106, 0.08);
+  color: rgba(255, 255, 255, 0.08);
   position: absolute;
-  top: 16px;
-  right: 24px;
+  top: 14px;
+  right: 18px;
   line-height: 1;
 }
 
 .stepTitle {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #ffffff;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
+@media (min-width: 768px) {
+  .stepTitle {
+    font-size: 20px;
+  }
+}
+
 .stepDesc {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.75);
   margin: 0;
@@ -160,30 +197,17 @@
 /* Responsive layout updates */
 @media (max-width: 768px) {
   .line {
-    left: 20px;
+    left: 12px;
     transform: none;
   }
   .dot {
-    left: 20px;
+    left: 12px;
   }
   .stepWrapper {
     justify-content: flex-end;
   }
   .card {
-    width: calc(100% - 48px);
-  }
-}
-
-@media (max-width: 576px) {
-  .title {
-    font-size: 32px;
-  }
-  .card {
-    padding: 24px;
-  }
-  .stepNum {
-    font-size: 32px;
-    top: 12px;
-    right: 16px;
+    width: calc(100% - 32px);
+    padding: 20px 16px;
   }
 }

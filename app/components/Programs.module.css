@@ -1,10 +1,16 @@
 .section {
-  padding: 100px 24px;
+  padding: 60px 16px;
   background-color: #F7F5F2;
   color: #0A0A0A;
   display: flex;
   justify-content: center;
   border-top: 1px solid #E8E2DA;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 100px 24px;
+  }
 }
 
 .container {
@@ -16,8 +22,14 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 56px;
+  margin-bottom: 36px;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 56px;
+  }
 }
 
 .headerLeft {
@@ -30,7 +42,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .subtitle {
@@ -38,25 +50,31 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.25em;
-  color: #C7A56A;
+  color: #8E8A83;
   text-transform: uppercase;
 }
 
 .subtitleLine {
   width: 40px;
   height: 1px;
-  background-color: #C7A56A;
+  background-color: #0A0A0A;
   margin-top: 8px;
 }
 
 .title {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: 42px;
+  font-size: 28px;
   font-weight: 400;
   letter-spacing: 0.04em;
   color: #0A0A0A;
   margin: 0;
   text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 42px;
+  }
 }
 
 .headerRight {
@@ -68,24 +86,37 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.18em;
-  color: #C7A56A;
+  color: #0A0A0A;
   text-decoration: none;
   text-transform: uppercase;
-  border-bottom: 1px solid #C7A56A;
+  border-bottom: 1px solid #0A0A0A;
   padding-bottom: 4px;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .viewAllLink:hover {
-  color: #0A0A0A;
-  border-color: #0A0A0A;
+  opacity: 0.7;
 }
 
 /* 5 Column Grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
 }
 
 .card {

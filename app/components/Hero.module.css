@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 140px 24px 60px 24px;
+  padding: 100px 16px 40px 16px;
   text-align: center;
   z-index: 10;
   position: relative;
@@ -39,11 +39,17 @@
 
 .rightColumn {
   width: 100%;
-  height: 480px;
+  height: 360px;
   position: relative;
   background-color: #000000;
   z-index: 5;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .rightColumn {
+    height: 480px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -96,13 +102,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .heroLogoLetter {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: 72px;
+  font-size: 54px;
   font-weight: 300;
   color: #ffffff;
   line-height: 1;
@@ -118,7 +124,7 @@
 .heroLogoDivider {
   color: #ffffff;
   opacity: 1.0;
-  font-size: 56px;
+  font-size: 42px;
   font-weight: 100;
   line-height: 1;
   user-select: none;
@@ -135,78 +141,89 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 12px;
+  width: 100%;
 }
 
 .heroBrandName {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 400;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.28em;
   color: #ffffff;
-  margin: 0 0 14px 0;
+  margin: 0 0 10px 0;
   line-height: 1.1;
   text-transform: uppercase;
   text-align: center;
-  padding-left: 0.38em; /* Offset for trailing letter-spacing to center text perfectly */
+  padding-left: 0.28em;
 }
 
 @media (min-width: 768px) {
   .heroBrandName {
     font-size: 42px;
+    letter-spacing: 0.38em;
+    padding-left: 0.38em;
   }
 }
 
 .heroBrandSub {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: #ffffff;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   text-align: center;
-  padding-left: 0.34em; /* offset for centering */
+  padding-left: 0.24em;
 }
 
 @media (min-width: 768px) {
   .heroBrandSub {
     font-size: 13px;
+    letter-spacing: 0.34em;
+    padding-left: 0.34em;
   }
 }
 
 .heroBrandSub2 {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: #ffffff;
   margin: 0;
   text-align: center;
-  padding-left: 0.34em; /* offset for centering */
+  padding-left: 0.24em;
 }
 
 @media (min-width: 768px) {
   .heroBrandSub2 {
     font-size: 13px;
+    letter-spacing: 0.34em;
+    padding-left: 0.34em;
   }
 }
 
 .tagline {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 400;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.18em;
   color: #ffffff;
   text-transform: uppercase;
-  margin: 40px 0 48px 0;
+  margin: 24px 0 28px 0;
   text-align: center;
-  padding-left: 0.26em; /* offset for centering */
+  padding-left: 0.18em;
+  line-height: 1.6;
 }
 
 @media (min-width: 768px) {
   .tagline {
     font-size: 12px;
+    letter-spacing: 0.26em;
+    padding-left: 0.26em;
+    margin: 40px 0 48px 0;
   }
 }
 
