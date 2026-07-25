@@ -22,11 +22,19 @@ const MastercardLogo = () => (
 );
 
 const PayPalOfficialLogo = () => (
-  <svg width="76" height="22" viewBox="0 0 76 22" fill="none">
-    <path d="M8.7 3H3.2C2.9 3 2.6 3.2 2.5 3.5L0 19.1C0 19.3 0.2 19.5 0.4 19.5H4.6C4.9 19.5 5.2 19.3 5.3 19L6.2 13.3C6.3 13 6.6 12.8 6.9 12.8H9.1C13.4 12.8 16 10.6 16.6 6.3C17 4.3 15.8 3 13.7 3H8.7Z" fill="#003087"/>
-    <path d="M9.5 4.7H5.2C4.9 4.7 4.6 4.9 4.5 5.2L3 14.8C3 15 3.2 15.2 3.4 15.2H6.5C6.8 15.2 7.1 15 7.2 14.7L8 9.1C8.1 8.8 8.4 8.6 8.7 8.6H10.9C15.2 8.6 17.4 6.4 18 2.2C17.8 2.1 17.5 2 17.1 2C16.2 2 15.1 2.1 14 2.1H9.5V4.7Z" fill="#0079C1"/>
-    <path d="M25.5 3H20C19.7 3 19.4 3.2 19.3 3.5L16.8 19.1C16.8 19.3 17 19.5 17.2 19.5H21.4C21.7 19.5 22 19.3 22.1 19L23 13.3C23.1 13 23.4 12.8 23.7 12.8H25.9C30.2 12.8 32.8 10.6 33.4 6.3C33.8 4.3 32.6 3 30.5 3H25.5Z" fill="#00457C"/>
-  </svg>
+  <img 
+    src="/paypal-official.webp" 
+    alt="PayPal" 
+    style={{ height: '24px', width: 'auto', display: 'block', objectFit: 'contain' }} 
+  />
+);
+
+const StripeOfficialLogo = () => (
+  <img 
+    src="/stripe-official.png" 
+    alt="Stripe" 
+    style={{ height: '22px', width: 'auto', display: 'block', objectFit: 'contain' }} 
+  />
 );
 
 const GooglePayOfficialLogo = () => (
