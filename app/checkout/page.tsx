@@ -660,8 +660,13 @@ function CheckoutContent() {
               <span style={{ color: '#10b981', fontWeight: '700' }}>INCLUDED ($0)</span>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#888', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#888', marginBottom: '10px' }}>
               <span>Industry Portfolio & Certification:</span>
+              <span style={{ color: '#10b981', fontWeight: '700' }}>INCLUDED ($0)</span>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#888', marginBottom: '16px' }}>
+              <span>UK VAT & Taxes (HMRC Notice 701/30):</span>
               <span style={{ color: '#10b981', fontWeight: '700' }}>INCLUDED ($0)</span>
             </div>
 
