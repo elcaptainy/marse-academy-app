@@ -1,8 +1,8 @@
 .section {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
   max-width: 1440px;
-  margin: 128px auto;
+  margin: 60px auto;
   position: relative;
   overflow: hidden;
 }
@@ -11,6 +11,7 @@
   .section {
     padding-left: 80px;
     padding-right: 80px;
+    margin: 100px auto;
   }
 }
 

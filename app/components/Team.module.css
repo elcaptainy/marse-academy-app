@@ -3,12 +3,13 @@
   background-color: #F7F5F2;
   height: auto;
   padding: 60px 16px;
+  border-top: 1px solid #E8E2DA;
 }
 
 @media (min-width: 1024px) {
   .section {
-    height: 300vh;
-    padding: 0;
+    height: auto;
+    padding: 100px 80px;
   }
 }
 
@@ -24,13 +25,13 @@
 
 @media (min-width: 1024px) {
   .stickyContainer {
-    position: sticky;
+    position: relative;
     top: 0;
-    height: 100vh;
+    height: auto;
     flex-direction: row;
     align-items: center;
-    overflow: hidden;
-    padding-left: 80px;
+    overflow: visible;
+    padding-left: 0;
   }
 }
 

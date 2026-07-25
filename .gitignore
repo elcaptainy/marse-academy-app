@@ -42,5 +42,7 @@ next-env.d.ts
 
 /app/generated/prisma
 
-# Large media files (videos under 50MB tracked)
+# Large media files (Root videos ignored, uploads tracked)
+public/*.mp4
+!public/uploads/*.mp4
 
