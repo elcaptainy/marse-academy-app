@@ -4,21 +4,21 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from './checkout.module.css';
 
-// OFFICIAL PAYMENT BRAND LOGO COMPONENTS (SVG)
+// OFFICIAL PAYMENT BRAND LOGO COMPONENTS
 const VisaLogo = () => (
-  <svg width="38" height="24" viewBox="0 0 38 24" fill="none" style={{ borderRadius: '4px', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))' }}>
-    <rect width="38" height="24" rx="4" fill="#1A1F71"/>
-    <path d="M14.5 16.2L16.4 8.6H19.3L17.4 16.2H14.5ZM24 8.8C23.4 8.6 22.5 8.4 21.4 8.4C18.3 8.4 16.2 10 16.2 12.3C16.2 14 17.7 14.9 18.8 15.5C19.9 16.1 20.3 16.4 20.3 16.9C20.3 17.6 19.4 17.9 18.5 17.9C17.2 17.9 16.3 17.6 15.7 17.3L15.2 19.6C15.9 19.9 17.3 20.2 18.7 20.2C22 20.2 24.1 18.6 24.1 16.2C24.1 13.1 19.9 12.9 19.9 11.6C19.9 11.1 20.4 10.6 21.5 10.6C22.3 10.6 23.3 10.8 23.9 11.1L24 8.8ZM29.1 8.6H26.9C26.2 8.6 25.6 8.8 25.3 9.5L21.7 18H24.7L25.3 16.3H29L29.3 18H31.9L29.1 8.6ZM26.1 14L27.5 10.2L28.3 14H26.1ZM13.3 8.6L10.4 15.8L9.3 9.5C9.1 8.9 8.6 8.6 8 8.6H3.1L3 8.9C4.1 9.2 5.6 9.7 6.7 10.3L10.2 20.2H13.3L17.5 8.6H13.3" fill="white"/>
-  </svg>
+  <img 
+    src="/visa-official.svg" 
+    alt="Visa" 
+    style={{ height: '20px', width: 'auto', display: 'block', objectFit: 'contain' }} 
+  />
 );
 
 const MastercardLogo = () => (
-  <svg width="38" height="24" viewBox="0 0 38 24" fill="none" style={{ borderRadius: '4px', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))' }}>
-    <rect width="38" height="24" rx="4" fill="#141414"/>
-    <circle cx="14" cy="12" r="7.5" fill="#EB001B"/>
-    <circle cx="24" cy="12" r="7.5" fill="#F79E1B"/>
-    <path d="M19 6.24A7.47 7.47 0 0 0 16.37 12 7.47 7.47 0 0 0 19 17.76 7.47 7.47 0 0 0 21.63 12 7.47 7.47 0 0 0 19 6.24Z" fill="#FF5F00"/>
-  </svg>
+  <img 
+    src="/mastercard-official.webp" 
+    alt="Mastercard" 
+    style={{ height: '22px', width: 'auto', display: 'block', objectFit: 'contain' }} 
+  />
 );
 
 const PayPalOfficialLogo = () => (
@@ -38,24 +38,19 @@ const StripeOfficialLogo = () => (
 );
 
 const GooglePayOfficialLogo = () => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: '#fff', border: '1px solid #cbd5e1', padding: '3px 8px', borderRadius: '4px' }}>
-    <svg width="18" height="18" viewBox="0 0 24 24">
-      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
-    </svg>
-    <span style={{ fontSize: '13px', fontWeight: '800', color: '#5f6368', fontFamily: 'sans-serif' }}>Pay</span>
-  </div>
+  <img 
+    src="/gpay-official.png" 
+    alt="Google Pay" 
+    style={{ height: '22px', width: 'auto', display: 'block', objectFit: 'contain' }} 
+  />
 );
 
 const ApplePayOfficialLogo = () => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', background: '#000', padding: '4px 10px', borderRadius: '4px', color: '#fff' }}>
-    <svg width="14" height="16" viewBox="0 0 170 170" fill="currentColor">
-      <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.34.13-9.16-1.9-14.48-6.1-3.23-2.63-7.14-7.27-11.72-13.9-6.3-9.15-11.13-19.5-14.48-31.06-3.36-11.55-5.04-22.37-5.04-32.46 0-14.68 3.69-26.6 11.07-35.75 7.38-9.16 16.71-13.8 27.99-13.93 4.83 0 10.05 1.18 15.66 3.55 5.61 2.37 9.4 3.55 11.37 3.55 1.63 0 5.48-1.24 11.55-3.73 6.07-2.48 11.45-3.62 16.14-3.41 12.01.52 21.6 4.96 28.77 13.33-10.74 6.5-16.01 15.54-15.82 27.13.19 9.04 3.6 16.59 10.23 22.65 6.63 6.06 14.54 9.48 23.73 10.26-2.58 7.74-5.94 15.35-10.08 22.84zM119.22 31.09c0-7.07 2.58-13.79 7.75-20.17 5.16-6.37 11.75-10.15 19.76-10.92.26 1.04.39 2.01.39 2.92 0 6.94-2.65 13.79-7.95 20.55-5.3 6.76-11.85 10.45-19.65 11.07-.06-1.11-.3-2.26-.3-3.45z"/>
-    </svg>
-    <span style={{ fontSize: '13px', fontWeight: '700', fontFamily: 'sans-serif' }}>Pay</span>
-  </div>
+  <img 
+    src="/applepay-official.webp" 
+    alt="Apple Pay" 
+    style={{ height: '22px', width: 'auto', display: 'block', objectFit: 'contain' }} 
+  />
 );
 
 function CheckoutContent() {
