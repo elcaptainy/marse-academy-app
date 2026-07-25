@@ -584,34 +584,116 @@ function CheckoutContent() {
         </div>
       </div>
 
-      {/* RIGHT COLUMN: DARK OBSIDIAN LUXURY SUMMARY SIDEBAR */}
-      <div className={styles.planPanel} style={{ background: '#0A0A0A' }}>
+      {/* RIGHT COLUMN: ULTRA-LUXURY ACADEMIC ORDER SUMMARY SIDEBAR */}
+      <div className={styles.planPanel} style={{ background: '#0A0A0A', borderLeft: '1px solid rgba(255, 255, 255, 0.08)' }}>
         
         <div className={styles.planSummaryBox}>
           
-          <div className={styles.summaryLabel}>
-            SELECTED ACADEMIC PATHWAY
+          {/* Official Academy Crest & Label */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: '20px',
+            paddingBottom: '16px',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '16px' }}>🏛️</span>
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '11px',
+                fontWeight: '800',
+                letterSpacing: '0.15em',
+                color: '#C7A56A',
+                textTransform: 'uppercase'
+              }}>
+                MARSE ACADEMY • LONDON
+              </span>
+            </div>
+            <span style={{
+              fontSize: '10px',
+              fontWeight: '800',
+              backgroundColor: 'rgba(199, 165, 106, 0.15)',
+              color: '#C7A56A',
+              padding: '3px 8px',
+              borderRadius: '4px',
+              border: '1px solid rgba(199, 165, 106, 0.3)',
+              letterSpacing: '0.05em'
+            }}>
+              {selectedPlan.badge || 'EXECUTIVE PATHWAY'}
+            </span>
           </div>
           
-          <h2 className={styles.summaryPlanName}>
+          <h2 className={styles.summaryPlanName} style={{ fontSize: '32px', marginBottom: '8px' }}>
             {selectedPlan.name}
           </h2>
 
-          <p className={styles.summaryPlanDesc}>
+          <p className={styles.summaryPlanDesc} style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.7)', marginBottom: '24px' }}>
             {selectedPlan.description}
           </p>
 
-          <div className={styles.summaryPriceRow}>
-            <span className={styles.summaryPriceValue}>{selectedPlan.price}</span>
-            <span className={styles.summaryPricePeriod}>{selectedPlan.period || '/yr'}</span>
+          {/* ITEMIZED PRICE BREAKDOWN TABLE */}
+          <div style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.03)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '12px',
+            padding: '20px',
+            marginBottom: '28px'
+          }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#888', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '14px' }}>
+              Tuition & Privileges Breakdown
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13.5px', color: '#ccc', marginBottom: '10px' }}>
+              <span>Base Program Tuition:</span>
+              <span style={{ color: '#fff', fontWeight: '700' }}>{selectedPlan.price}</span>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#888', marginBottom: '10px' }}>
+              <span>London Studio & Equipment Access:</span>
+              <span style={{ color: '#10b981', fontWeight: '700' }}>INCLUDED ($0)</span>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#888', marginBottom: '10px' }}>
+              <span>1-on-1 Master Executive Mentorship:</span>
+              <span style={{ color: '#10b981', fontWeight: '700' }}>INCLUDED ($0)</span>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#888', marginBottom: '16px' }}>
+              <span>Industry Portfolio & Certification:</span>
+              <span style={{ color: '#10b981', fontWeight: '700' }}>INCLUDED ($0)</span>
+            </div>
+
+            <div style={{
+              borderTop: '1px dashed rgba(255, 255, 255, 0.15)',
+              paddingTop: '14px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'baseline'
+            }}>
+              <div>
+                <span style={{ fontSize: '13px', fontWeight: '800', color: '#ffffff', display: 'block' }}>Total Investment Due Today:</span>
+                <span style={{ fontSize: '11px', color: '#666' }}>All taxes & fees included</span>
+              </div>
+              <span style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: '32px',
+                fontWeight: '800',
+                color: '#C7A56A'
+              }}>
+                {selectedPlan.price}
+              </span>
+            </div>
           </div>
 
-          <div className={styles.featuresSection}>
-            <h3>Included Academic Privileges:</h3>
-            <ul className={styles.summaryFeaturesList}>
+          {/* INCLUDED PRIVILEGES CHECKLIST */}
+          <div className={styles.featuresSection} style={{ marginBottom: '28px' }}>
+            <h3 style={{ fontSize: '11px', letterSpacing: '0.1em', color: '#888' }}>ACADEMIC PRIVILEGES INCLUDED:</h3>
+            <ul className={styles.summaryFeaturesList} style={{ gap: '10px' }}>
               {selectedPlan.features && selectedPlan.features.map((feat: string, idx: number) => (
-                <li key={idx}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <li key={idx} style={{ fontSize: '13px' }}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ color: '#C7A56A' }}>
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                   <span>{feat}</span>
@@ -620,27 +702,51 @@ function CheckoutContent() {
             </ul>
           </div>
 
-          {/* Live Seat Guarantee Alert */}
+          {/* LIVE SEAT & TIMER ALERT */}
           <div style={{
-            marginTop: '32px',
-            background: 'rgba(212, 175, 55, 0.08)',
-            border: '1px solid rgba(212, 175, 55, 0.25)',
+            background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.03) 100%)',
+            border: '1px solid rgba(212, 175, 55, 0.3)',
             borderRadius: '10px',
-            padding: '14px 18px',
+            padding: '16px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '14px',
+            marginBottom: '16px'
+          }}>
+            <span style={{ fontSize: '22px' }}>🔒</span>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <h4 style={{ margin: 0, fontSize: '12px', color: '#D4AF37', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.04em' }}>15-Minute Seat Lock Active</h4>
+                <span style={{ fontSize: '10px', background: '#D4AF37', color: '#000', fontWeight: 'bold', padding: '1px 5px', borderRadius: '3px' }}>RESERVED</span>
+              </div>
+              <p style={{ margin: '3px 0 0 0', fontSize: '11.5px', color: '#cccccc' }}>
+                Your seat is locked for Fall 2026 term while completing checkout.
+              </p>
+            </div>
+          </div>
+
+          {/* 14-DAY MONEY BACK ENROLLMENT GUARANTEE */}
+          <div style={{
+            backgroundColor: 'rgba(16, 185, 129, 0.06)',
+            border: '1px solid rgba(16, 185, 129, 0.2)',
+            borderRadius: '10px',
+            padding: '14px 16px',
             display: 'flex',
             alignItems: 'center',
             gap: '12px'
           }}>
-            <span style={{ fontSize: '20px' }}>🔥</span>
+            <span style={{ fontSize: '18px' }}>🛡️</span>
             <div>
-              <h4 style={{ margin: 0, fontSize: '12px', color: '#D4AF37', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Limited Enrollment Cohort</h4>
-              <p style={{ margin: '2px 0 0 0', fontSize: '11.5px', color: '#a0a0a0' }}>Only 2 seats remaining for the upcoming Fall 2026 term.</p>
+              <h5 style={{ margin: 0, fontSize: '12px', color: '#10b981', fontWeight: '800' }}>14-Day Enrollment Guarantee</h5>
+              <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: '#94a3b8' }}>
+                Full refund guaranteed if application is withdrawn before term start date.
+              </p>
             </div>
           </div>
 
         </div>
 
-        <div className={styles.planPanelFooter}>
+        <div className={styles.planPanelFooter} style={{ marginTop: '32px' }}>
           <div className={styles.securityTrustBadge}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
