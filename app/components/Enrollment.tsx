@@ -122,10 +122,10 @@ export default function Enrollment({ initialData, initialSettings }: { initialDa
           return (
             <motion.div 
               key={plan.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className={cardClass}
             >
               {badgeLabel && (

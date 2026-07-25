@@ -88,9 +88,9 @@ export default function StudentJourney({ initialData }: { initialData?: any[] })
 
                 {/* Step Card Content */}
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={false}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className={styles.card}
                 >

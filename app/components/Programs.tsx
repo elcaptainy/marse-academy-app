@@ -77,7 +77,7 @@ export default function Programs({ initialData }: { initialData?: any[] }) {
           {displayPrograms.map((prog, index) => (
             <motion.div
               key={prog.id || prog.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}

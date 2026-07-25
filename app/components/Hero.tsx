@@ -58,7 +58,7 @@ export default function Hero({ initialData }: HeroProps) {
       <div className={styles.leftColumn}>
         <div className={styles.stackedLogoBlock}>
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className={styles.heroLogoWrapper}
@@ -69,7 +69,7 @@ export default function Hero({ initialData }: HeroProps) {
           </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className={styles.brandTextGroup}
@@ -80,7 +80,7 @@ export default function Hero({ initialData }: HeroProps) {
           </motion.div>
 
           <motion.p 
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
             className={styles.tagline}
@@ -89,7 +89,7 @@ export default function Hero({ initialData }: HeroProps) {
           </motion.p>
           
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             style={{ marginTop: '24px' }}

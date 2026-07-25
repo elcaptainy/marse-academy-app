@@ -80,7 +80,7 @@ export default function Gallery({ initialData }: { initialData?: any[] }) {
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: Math.min(index * 0.08, 0.4) }}

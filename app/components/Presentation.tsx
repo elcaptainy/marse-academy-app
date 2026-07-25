@@ -28,9 +28,9 @@ export default function Presentation({ initialData }: { initialData?: any }) {
         <div className={styles.grid}>
           {/* Left Column: Photographic image of three models */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className={styles.imageCol}
           >
@@ -41,9 +41,9 @@ export default function Presentation({ initialData }: { initialData?: any }) {
 
           {/* Right Column: About Us Copy */}
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className={styles.textCol}
           >
