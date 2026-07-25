@@ -99,11 +99,56 @@ function SuccessContent() {
           </div>
         </div>
 
+        {/* Post-Payment Student Onboarding Action Buttons */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
+          <a
+            href="https://wa.me/447000000000?text=Hello%20Marse%20Academy%20Admissions!%20I%20have%20just%20completed%20my%20tuition%20payment%20for%20my%20enrollment."
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              backgroundColor: '#25D366',
+              color: '#ffffff',
+              padding: '14px 20px',
+              borderRadius: '8px',
+              fontWeight: '800',
+              textDecoration: 'none',
+              fontSize: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              boxShadow: '0 4px 14px rgba(37, 211, 102, 0.25)'
+            }}
+          >
+            <span>💬 Connect with Admissions Team on WhatsApp</span>
+          </a>
+
+          <a
+            href="/about"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.15)',
+              color: '#ffffff',
+              padding: '12px 20px',
+              borderRadius: '8px',
+              fontWeight: '700',
+              textDecoration: 'none',
+              fontSize: '13px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px'
+            }}
+          >
+            <span>📄 Download Student Onboarding Guide & Agenda</span>
+          </a>
+        </div>
+
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
           <Link href="/" style={{
             backgroundColor: '#C7A56A',
             color: '#0A0A0A',
-            padding: '14px 28px',
+            padding: '12px 24px',
             borderRadius: '6px',
             fontWeight: '700',
             textDecoration: 'none',
@@ -115,7 +160,7 @@ function SuccessContent() {
             backgroundColor: 'transparent',
             border: '1px solid rgba(255,255,255,0.2)',
             color: '#ffffff',
-            padding: '14px 28px',
+            padding: '12px 24px',
             borderRadius: '6px',
             fontWeight: '600',
             textDecoration: 'none',
