@@ -14,6 +14,23 @@
 
 ---
 
+## 🛠️ Full Technology Stack & Architecture Specifications
+
+| Category | Technology | Version / Specification | Usage & Purpose in Project |
+| :--- | :--- | :--- | :--- |
+| **Core Framework** | **Next.js** | `v15.0+` (App Router) | Server-Side Rendering (SSR), Client Components, and Native API Routes |
+| **Core Language** | **TypeScript** | `v5.0+` Strict Mode | Type-safe architecture, interface contracts, and 0-runtime-error safety |
+| **UI & Animations** | **React & Framer Motion** | `v19.0` / `v12.0` | Declarative UI rendering, fluid scroll effects, and micro-interactions |
+| **Styling System** | **Vanilla CSS Modules** | Scoped `*.module.css` | High-performance zero-conflict styling with Obsidian Dark & Luxury Gold palette |
+| **Payment Gateways** | **Stripe REST API & PayPal**| Live PaymentIntents API | Official hosted checkout sessions, card processing, and PayPal Express |
+| **Data Layer & ORM** | **Prisma ORM & Fallback Engine** | Custom Resilient Layer | Structured database queries with zero-downtime JSON fallback resilience |
+| **Email Engine** | **Nodemailer** | `v6.9+` | Branded HTML email templates for student receipts and admin alerts |
+| **Asset Processing** | **Sharp Image Optimization**| High-performance WebP | Automated avatar compression and responsive image rendering |
+| **Authentication** | **JWT & HTTP-Only Cookies** | `jsonwebtoken` / `cookie` | Encrypted admin session tokens and CSRF-protected authentication |
+| **Hosting & CI/CD** | **Netlify & GitHub** | Automated Deployment Pipeline | Continuous integration, automatic SSL, and global edge network delivery |
+
+---
+
 ## 🗺️ Complete Project Architecture Map
 
 ```
