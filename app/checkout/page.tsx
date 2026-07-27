@@ -334,7 +334,7 @@ function CheckoutContent() {
                   {selectedPlan.price}
                 </div>
                 <span style={{ fontSize: '9.5px', background: '#10b981', color: '#fff', fontWeight: '800', padding: '2px 6px', borderRadius: '4px', position: 'absolute', top: '8px', right: '8px' }}>
-                  SAVE 10%
+                  {selectedPlan.discountBadge || 'SAVE 10%'}
                 </span>
               </div>
 
@@ -356,7 +356,7 @@ function CheckoutContent() {
                   <span style={{ fontSize: '13.5px', fontWeight: '800', color: '#0f172a' }}>Installments</span>
                 </div>
                 <div style={{ fontSize: '15px', fontWeight: '800', color: '#ea580c', paddingLeft: '24px' }}>
-                  {installmentFrequency === 'QUARTERLY' ? '$12,000' : '$4,000'}
+                  {installmentFrequency === 'QUARTERLY' ? (selectedPlan.quarterlyPrice || '$12,000') : (selectedPlan.monthlyPrice || '$4,000')}
                   <span style={{ fontSize: '11px', color: '#64748b', fontWeight: 'normal' }}>
                     {installmentFrequency === 'QUARTERLY' ? ' / qtr' : ' / mo'}
                   </span>
@@ -394,7 +394,7 @@ function CheckoutContent() {
                       cursor: 'pointer'
                     }}
                   >
-                    4 Quarterly Payments ($12k)
+                    4 Quarterly ({selectedPlan.quarterlyPrice || '$12,000'})
                   </button>
                   <button
                     type="button"
@@ -410,7 +410,7 @@ function CheckoutContent() {
                       cursor: 'pointer'
                     }}
                   >
-                    12 Monthly Payments ($4k)
+                    12 Monthly ({selectedPlan.monthlyPrice || '$4,000'})
                   </button>
                 </div>
               </div>

@@ -3569,6 +3569,61 @@ export default function AdminDashboard() {
                       </select>
                     </div>
 
+                    {/* INSTALLMENT & DISCOUNT CMS CONTROLS */}
+                    <div style={{
+                      backgroundColor: isDark ? 'rgba(255,255,255,0.04)' : '#f8fafc',
+                      border: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid #cbd5e1',
+                      borderRadius: '8px',
+                      padding: '12px',
+                      margin: '12px 0',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '10px'
+                    }}>
+                      <div style={{ fontSize: '11px', fontWeight: '800', color: '#D4AF37', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                        💳 Installment & Discount Pricing Controls
+                      </div>
+
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
+                        <div>
+                          <label style={{ fontSize: '10px', display: 'block', color: isDark ? '#aaa' : '#666', marginBottom: '2px' }}>Pay in Full Discount Badge</label>
+                          <input 
+                            value={plan.discountBadge || 'SAVE 10%'}
+                            onChange={(e) => {
+                              const discountBadge = e.target.value;
+                              setPricing(prev => prev.map(p => p.id === plan.id ? { ...p, discountBadge } : p));
+                            }}
+                            placeholder="SAVE 10%"
+                            style={{ width: '100%', fontSize: '11px', padding: '4px 6px', borderRadius: '4px', border: '1px solid #444', background: isDark ? '#111' : '#fff', color: isDark ? '#fff' : '#000' }}
+                          />
+                        </div>
+                        <div>
+                          <label style={{ fontSize: '10px', display: 'block', color: isDark ? '#aaa' : '#666', marginBottom: '2px' }}>Quarterly Installment Price</label>
+                          <input 
+                            value={plan.quarterlyPrice || '$12,000'}
+                            onChange={(e) => {
+                              const quarterlyPrice = e.target.value;
+                              setPricing(prev => prev.map(p => p.id === plan.id ? { ...p, quarterlyPrice } : p));
+                            }}
+                            placeholder="$12,000"
+                            style={{ width: '100%', fontSize: '11px', padding: '4px 6px', borderRadius: '4px', border: '1px solid #444', background: isDark ? '#111' : '#fff', color: isDark ? '#fff' : '#000' }}
+                          />
+                        </div>
+                        <div>
+                          <label style={{ fontSize: '10px', display: 'block', color: isDark ? '#aaa' : '#666', marginBottom: '2px' }}>Monthly Installment Price</label>
+                          <input 
+                            value={plan.monthlyPrice || '$4,000'}
+                            onChange={(e) => {
+                              const monthlyPrice = e.target.value;
+                              setPricing(prev => prev.map(p => p.id === plan.id ? { ...p, monthlyPrice } : p));
+                            }}
+                            placeholder="$4,000"
+                            style={{ width: '100%', fontSize: '11px', padding: '4px 6px', borderRadius: '4px', border: '1px solid #444', background: isDark ? '#111' : '#fff', color: isDark ? '#fff' : '#000' }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
                     <div className={styles.cardActions}>
                       <button
                         type="button"

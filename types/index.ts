@@ -39,6 +39,10 @@ export interface PricingPlan {
   isFeatured?: boolean;
   badge?: string;
   order?: number;
+  discountBadge?: string;
+  quarterlyPrice?: string;
+  monthlyPrice?: string;
+  allowInstallments?: boolean;
 }
 
 export interface Mentor {
