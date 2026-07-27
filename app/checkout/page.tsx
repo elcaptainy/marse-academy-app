@@ -81,6 +81,10 @@ function CheckoutContent() {
   // Selected radio option: 'CARD' | 'PAYPAL' | 'GPAY' | 'APPLE'
   const [selectedOption, setSelectedOption] = useState<'CARD' | 'PAYPAL' | 'GPAY' | 'APPLE'>('CARD');
 
+  // Selected Payment Mode: 'FULL' (Single Payment) | 'INSTALLMENTS' (Split Payments)
+  const [paymentMode, setPaymentMode] = useState<'FULL' | 'INSTALLMENTS'>('FULL');
+  const [installmentFrequency, setInstallmentFrequency] = useState<'QUARTERLY' | 'MONTHLY'>('QUARTERLY');
+
   // Form states
   const [formData, setFormData] = useState({
     email: '',
@@ -279,7 +283,7 @@ function CheckoutContent() {
         <div className={styles.formPanelContent} style={{ maxWidth: '540px' }}>
           
           {/* Header Title */}
-          <div style={{ marginBottom: '28px' }}>
+          <div style={{ marginBottom: '24px' }}>
             <h1 style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: '28px',
@@ -291,8 +295,127 @@ function CheckoutContent() {
               Confirm your purchase
             </h1>
             <p style={{ margin: 0, fontSize: '13px', color: '#666' }}>
-              Enrolling in: <strong style={{ color: '#000' }}>{selectedPlan.name} ({selectedPlan.price})</strong>
+              Enrolling in: <strong style={{ color: '#000' }}>{selectedPlan.name}</strong>
             </p>
+          </div>
+
+          {/* GLOBAL PAYMENT FREQUENCY TOGGLE (PAY IN FULL VS FLEXIBLE INSTALLMENTS) */}
+          <div style={{
+            backgroundColor: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            borderRadius: '12px',
+            padding: '16px',
+            marginBottom: '24px'
+          }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748b', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
+              Select Payment Plan Schedule
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: paymentMode === 'INSTALLMENTS' ? '12px' : '0' }}>
+              
+              {/* Option A: Pay in Full */}
+              <div 
+                onClick={() => setPaymentMode('FULL')}
+                style={{
+                  border: paymentMode === 'FULL' ? '2px solid #C7A56A' : '1px solid #cbd5e1',
+                  backgroundColor: paymentMode === 'FULL' ? '#ffffff' : '#f1f5f9',
+                  borderRadius: '8px',
+                  padding: '12px',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                  <input type="radio" name="paySchedule" checked={paymentMode === 'FULL'} onChange={() => setPaymentMode('FULL')} style={{ accentColor: '#C7A56A' }} />
+                  <span style={{ fontSize: '13.5px', fontWeight: '800', color: '#0f172a' }}>Pay in Full</span>
+                </div>
+                <div style={{ fontSize: '15px', fontWeight: '800', color: '#C7A56A', paddingLeft: '24px' }}>
+                  {selectedPlan.price}
+                </div>
+                <span style={{ fontSize: '9.5px', background: '#10b981', color: '#fff', fontWeight: '800', padding: '2px 6px', borderRadius: '4px', position: 'absolute', top: '8px', right: '8px' }}>
+                  SAVE 10%
+                </span>
+              </div>
+
+              {/* Option B: Flexible Installments */}
+              <div 
+                onClick={() => setPaymentMode('INSTALLMENTS')}
+                style={{
+                  border: paymentMode === 'INSTALLMENTS' ? '2px solid #ea580c' : '1px solid #cbd5e1',
+                  backgroundColor: paymentMode === 'INSTALLMENTS' ? '#ffffff' : '#f1f5f9',
+                  borderRadius: '8px',
+                  padding: '12px',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                  <input type="radio" name="paySchedule" checked={paymentMode === 'INSTALLMENTS'} onChange={() => setPaymentMode('INSTALLMENTS')} style={{ accentColor: '#ea580c' }} />
+                  <span style={{ fontSize: '13.5px', fontWeight: '800', color: '#0f172a' }}>Installments</span>
+                </div>
+                <div style={{ fontSize: '15px', fontWeight: '800', color: '#ea580c', paddingLeft: '24px' }}>
+                  {installmentFrequency === 'QUARTERLY' ? '$12,000' : '$4,000'}
+                  <span style={{ fontSize: '11px', color: '#64748b', fontWeight: 'normal' }}>
+                    {installmentFrequency === 'QUARTERLY' ? ' / qtr' : ' / mo'}
+                  </span>
+                </div>
+                <span style={{ fontSize: '9.5px', background: '#ea580c', color: '#fff', fontWeight: '800', padding: '2px 6px', borderRadius: '4px', position: 'absolute', top: '8px', right: '8px' }}>
+                  FLEXIBLE
+                </span>
+              </div>
+
+            </div>
+
+            {/* Sub-frequency selector when Installments is active */}
+            {paymentMode === 'INSTALLMENTS' && (
+              <div style={{
+                borderTop: '1px dashed #cbd5e1',
+                paddingTop: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                fontSize: '12px'
+              }}>
+                <span style={{ color: '#475569', fontWeight: '600' }}>Installment Frequency:</span>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button
+                    type="button"
+                    onClick={() => setInstallmentFrequency('QUARTERLY')}
+                    style={{
+                      border: 'none',
+                      background: installmentFrequency === 'QUARTERLY' ? '#ea580c' : '#e2e8f0',
+                      color: installmentFrequency === 'QUARTERLY' ? '#fff' : '#475569',
+                      padding: '4px 10px',
+                      borderRadius: '4px',
+                      fontSize: '11px',
+                      fontWeight: '700',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    4 Quarterly Payments ($12k)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setInstallmentFrequency('MONTHLY')}
+                    style={{
+                      border: 'none',
+                      background: installmentFrequency === 'MONTHLY' ? '#ea580c' : '#e2e8f0',
+                      color: installmentFrequency === 'MONTHLY' ? '#fff' : '#475569',
+                      padding: '4px 10px',
+                      borderRadius: '4px',
+                      fontSize: '11px',
+                      fontWeight: '700',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    12 Monthly Payments ($4k)
+                  </button>
+                </div>
+              </div>
+            )}
+
           </div>
 
           {/* ACCORDION RADIO PAYMENT METHODS */}
@@ -681,16 +804,20 @@ function CheckoutContent() {
               alignItems: 'baseline'
             }}>
               <div>
-                <span style={{ fontSize: '13px', fontWeight: '800', color: '#ffffff', display: 'block' }}>Total Investment Due Today:</span>
-                <span style={{ fontSize: '11px', color: '#666' }}>All taxes & fees included</span>
+                <span style={{ fontSize: '13px', fontWeight: '800', color: '#ffffff', display: 'block' }}>
+                  {paymentMode === 'FULL' ? 'Total Investment Due Today:' : 'First Installment Due Today:'}
+                </span>
+                <span style={{ fontSize: '11px', color: '#666' }}>
+                  {paymentMode === 'FULL' ? 'All taxes & fees included' : `${installmentFrequency === 'QUARTERLY' ? '4 quarterly' : '12 monthly'} automated billing`}
+                </span>
               </div>
               <span style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: '32px',
                 fontWeight: '800',
-                color: '#C7A56A'
+                color: paymentMode === 'FULL' ? '#C7A56A' : '#ea580c'
               }}>
-                {selectedPlan.price}
+                {paymentMode === 'FULL' ? selectedPlan.price : (installmentFrequency === 'QUARTERLY' ? '$12,000' : '$4,000')}
               </span>
             </div>
           </div>
