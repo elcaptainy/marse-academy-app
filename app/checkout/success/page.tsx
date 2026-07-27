@@ -1,11 +1,23 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 function SuccessContent() {
   const searchParams = useSearchParams();
-  const sessionId = searchParams.get('session_id') || 'cs_test_verified';
+  const sessionId = searchParams.get('session_id') || 'cs_live_verified';
+  const [whatsappNum, setWhatsappNum] = useState<string>('2016771643');
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.supportWhatsapp) {
+          setWhatsappNum(data.supportWhatsapp.replace(/\+/g, '').replace(/\s/g, ''));
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <div style={{
@@ -102,7 +114,7 @@ function SuccessContent() {
         {/* Post-Payment Student Onboarding Action Buttons */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
           <a
-            href="https://wa.me/447000000000?text=Hello%20Marse%20Academy%20Admissions!%20I%20have%20just%20completed%20my%20tuition%20payment%20for%20my%20enrollment."
+            href={`https://wa.me/${whatsappNum}?text=Hello%20Marse%20Academy%20Admissions!%20I%20have%20just%20completed%20my%20tuition%20payment%20for%20my%20enrollment.`}
             target="_blank"
             rel="noopener noreferrer"
             style={{
