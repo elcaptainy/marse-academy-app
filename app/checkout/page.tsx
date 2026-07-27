@@ -162,6 +162,14 @@ function CheckoutContent() {
     setPayStatus('LOADING');
     setErrorMessage('');
 
+    const activePrice = paymentMode === 'FULL' 
+      ? selectedPlan.price 
+      : (installmentFrequency === 'QUARTERLY' ? (selectedPlan.quarterlyPrice || '$12,000') : (selectedPlan.monthlyPrice || '$4,000'));
+
+    const scheduleLabel = paymentMode === 'FULL' 
+      ? 'Pay in Full' 
+      : `Installment (${installmentFrequency === 'QUARTERLY' ? '4 Quarterly' : '12 Monthly'})`;
+
     try {
       const response = await fetch('/api/checkout', {
         method: 'POST',
@@ -170,8 +178,8 @@ function CheckoutContent() {
           email: formData.email,
           cardName: formData.cardName || 'Cardholder',
           cardNumber: formData.cardNumber.replace(/\s/g, ''),
-          amount: selectedPlan.price,
-          planName: selectedPlan.name
+          amount: activePrice,
+          planName: `${selectedPlan.name} [${scheduleLabel}]`
         })
       });
 
@@ -198,6 +206,15 @@ function CheckoutContent() {
       return;
     }
     setPayStatus('LOADING');
+
+    const activePrice = paymentMode === 'FULL' 
+      ? selectedPlan.price 
+      : (installmentFrequency === 'QUARTERLY' ? (selectedPlan.quarterlyPrice || '$12,000') : (selectedPlan.monthlyPrice || '$4,000'));
+
+    const scheduleLabel = paymentMode === 'FULL' 
+      ? 'Pay in Full' 
+      : `Installment (${installmentFrequency === 'QUARTERLY' ? '4 Quarterly' : '12 Monthly'})`;
+
     try {
       const res = await fetch('/api/checkout', {
         method: 'POST',
@@ -206,8 +223,8 @@ function CheckoutContent() {
           email: formData.email,
           cardName: 'PayPal Customer',
           cardNumber: 'PayPal Express Checkout (Verified)',
-          amount: selectedPlan.price,
-          planName: selectedPlan.name
+          amount: activePrice,
+          planName: `${selectedPlan.name} [${scheduleLabel}]`
         })
       });
       const data = await res.json();
@@ -560,7 +577,9 @@ function CheckoutContent() {
                       {payStatus === 'LOADING' ? (
                         <span>Processing Payment...</span>
                       ) : (
-                        <span>🛒 Complete purchase ({selectedPlan.price})</span>
+                        <span>
+                          🛒 {paymentMode === 'FULL' ? `Complete purchase (${selectedPlan.price})` : `Complete 1st installment (${installmentFrequency === 'QUARTERLY' ? (selectedPlan.quarterlyPrice || '$12,000') : (selectedPlan.monthlyPrice || '$4,000')})`}
+                        </span>
                       )}
                     </button>
 
@@ -627,7 +646,7 @@ function CheckoutContent() {
                     }}
                   >
                     <PayPalOfficialLogo />
-                    <span>Proceed with PayPal Express →</span>
+                    <span>Proceed with PayPal ({paymentMode === 'FULL' ? selectedPlan.price : (installmentFrequency === 'QUARTERLY' ? (selectedPlan.quarterlyPrice || '$12,000') : (selectedPlan.monthlyPrice || '$4,000'))}) →</span>
                   </button>
                 </div>
               )}
