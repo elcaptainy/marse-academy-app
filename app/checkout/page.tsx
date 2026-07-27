@@ -299,33 +299,47 @@ function CheckoutContent() {
       <div className={styles.formPanel}>
         <div className={styles.formPanelContent} style={{ maxWidth: '540px' }}>
           
-          {/* Header Title */}
-          <div style={{ marginBottom: '24px' }}>
+          {/* Header Title - Aligned Right with Luxury Gold Accent */}
+          <div style={{ marginBottom: '28px', textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+              <span style={{ fontSize: '10px', fontWeight: '800', background: 'rgba(199, 165, 106, 0.12)', color: '#C7A56A', padding: '3px 10px', borderRadius: '20px', border: '1px solid rgba(199, 165, 106, 0.3)', letterSpacing: '0.08em' }}>
+                🏛️ SECURE ADMISSIONS CHECKOUT
+              </span>
+            </div>
+
             <h1 style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '28px',
-              fontWeight: '800',
-              color: '#111111',
-              margin: '0 0 4px 0',
-              letterSpacing: '-0.02em'
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: '32px',
+              fontWeight: '700',
+              color: '#0f172a',
+              margin: '0 0 6px 0',
+              letterSpacing: '-0.01em',
+              textAlign: 'right'
             }}>
               Confirm your purchase
             </h1>
-            <p style={{ margin: 0, fontSize: '13px', color: '#666' }}>
-              Enrolling in: <strong style={{ color: '#000' }}>{selectedPlan.name}</strong>
+            
+            <p style={{ margin: 0, fontSize: '13.5px', color: '#475569', textAlign: 'right' }}>
+              Enrolling in: <strong style={{ color: '#0f172a', fontWeight: '800' }}>{selectedPlan.name}</strong>
             </p>
+
+            <div style={{ width: '60px', height: '2.5px', backgroundColor: '#C7A56A', marginTop: '12px', borderRadius: '2px' }} />
           </div>
 
-          {/* GLOBAL PAYMENT FREQUENCY TOGGLE (PAY IN FULL VS FLEXIBLE INSTALLMENTS) */}
+          {/* GLOBAL PAYMENT FREQUENCY TOGGLE (PAY IN FULL VS FLEXIBLE INSTALLMENTS) - REDESIGNED */}
           <div style={{
-            backgroundColor: '#f8fafc',
-            border: '1px solid #e2e8f0',
-            borderRadius: '12px',
-            padding: '16px',
-            marginBottom: '24px'
+            backgroundColor: '#ffffff',
+            border: '1.5px solid #e2e8f0',
+            borderRadius: '14px',
+            padding: '18px',
+            marginBottom: '28px',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.03)'
           }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748b', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
-              Select Payment Plan Schedule
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+              <span style={{ fontSize: '9.5px', background: '#f1f5f9', color: '#64748b', fontWeight: '800', padding: '2px 8px', borderRadius: '4px' }}>STEP 1 OF 2</span>
+              <div style={{ fontSize: '11px', fontWeight: '800', color: '#475569', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                Select Payment Plan Schedule
+              </div>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: paymentMode === 'INSTALLMENTS' ? '12px' : '0' }}>
